@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub Pembelajaran Incoterms SLK30203 | KKPPS</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="Platform Pembelajaran Digital Interaktif Incoterms (Silibus SLK30203 Pengurusan Import dan Eksport). Sesuai untuk Sijil Perkhidmatan Logistik, Kolej Komuniti Papar.">
+  <meta name="author" content="KKPPS @ Kolej Komuniti Papar">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- No external dependencies, using native browser print for PDF -->
+</head>
+<body>
+
+  <!-- Rangka Utama Web -->
+  <div class="app-container">
+    
+    <!-- Header Utama -->
+    <header class="no-print">
+      <div class="header-content">
+        <!-- Logo Sabah Digital Academy & Kolej Komuniti Papar -->
+        <div class="logo-section">
+          <div class="logo-badge" id="app-logo-badge">KKPPS</div>
+          <div class="logo-text">
+            <h1>Incoterms Hub</h1>
+            <p>SLK30203 PENGURUSAN IMPORT & EKSPORT</p>
+          </div>
+        </div>
+        
+        <!-- Status & Tindakan Pelajar -->
+        <div class="header-actions">
+          <div class="progress-container">
+            <div class="progress-text">
+              <span>Kemajuan Anda</span>
+              <span id="overall-progress-text">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="overall-progress-bar"></div>
+            </div>
+          </div>
+          
+          <button class="btn btn-secondary" id="btn-download-pdf-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Nota PDF
+          </button>
+          
+          <button class="btn btn-lecturer" id="btn-lecturer-modal-trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Panel Pensyarah
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Tab Navigasi Menu Pelajar -->
+    <nav class="tabs-container no-print">
+      <div class="tabs-list">
+        <button class="tab-btn active" id="tab-dashboard" data-target="section-dashboard">
+          🏠 Papan Pemuka
+        </button>
+        <button class="tab-btn" id="tab-modul-1" data-target="section-modul-1">
+          📖 Modul 1: Konsep & Sejarah
+        </button>
+        <button class="tab-btn" id="tab-modul-2" data-target="section-modul-2">
+          📦 Modul 2: 11 Terma
+        </button>
+        <button class="tab-btn" id="tab-modul-3" data-target="section-modul-3">
+          🚢 Modul 3: Simulasi Risiko
+        </button>
+        <button class="tab-btn" id="tab-modul-4" data-target="section-modul-4">
+          💰 Modul 4: Kalkulator Kos
+        </button>
+        <button class="tab-btn" id="tab-kuiz" data-target="section-kuiz">
+          🏆 Kuiz Uji Minda
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Kandungan Halaman Utama -->
+    <main class="no-print">
+      
+      <!-- Pop-up Nama Pelajar (Jika belum didaftar) -->
+      <div class="card" id="student-name-card" style="margin-bottom: 24px; border-color: var(--pink);">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="color: var(--pink);">Selamat Datang ke Hub Incoterms!</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light);">Sila masukkan nama penuh anda untuk memperibadikan sijil kuiz akhir dan profil pembelajaran anda.</p>
+          <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
+            <input type="text" id="input-student-name" placeholder="Contoh: Ahmad Zaki bin Rosli" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid var(--border-color); font-family: var(--font-body);" value="Pelajar SPL">
+            <button class="btn btn-primary" id="btn-save-student-name">Simpan Nama</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ================= SEKSYEN PAPAN PEMUBA ================= -->
+      <section id="section-dashboard" class="module-section active">
+        <div class="dashboard-hero">
+          <span class="hero-tag">Sijil Perkhidmatan Logistik</span>
+          <h2>Topik 4.0: Terma Komersial Antarabangsa (INCOTERMS® 2020)</h2>
+          <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 24px;">
+            <button class="btn btn-primary" id="btn-start-learning">Mula Belajar Sekarang</button>
+            <button class="btn btn-secondary" id="btn-download-handbook">Muat Turun Buku Nota</button>
+            <button class="btn btn-lecturer" id="btn-reset-student-profile" style="color: var(--error); border-color: var(--error); cursor: pointer;">Reset Profil & Kemajuan</button>
+          </div>
+        </div>
+        
+        <div class="modules-grid">
+          <!-- Modul 1 Card -->
+          <div class="module-card" id="card-mod1" data-target="section-modul-1">
+            <div class="module-badge-num">01</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+            <h3>Konsep & Sejarah</h3>
+            <p>Fahami 3 pilar utama Incoterms (Tanggungjawab, Risiko, Kos) dan pelajari bagaimana ia berevolusi dari 1936 sehingga edisi 2020.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+          
+          <!-- Modul 2 Card -->
+          <div class="module-card" id="card-mod2" data-target="section-modul-2">
+            <div class="module-badge-num">02</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 16 12 21 3 16"></polyline><polyline points="21 12 12 17 3 12"></polyline><polyline points="12 3 2 8 12 13 22 8 12 3"></polyline></svg>
+            </div>
+            <h3>11 Terma Standard</h3>
+            <p>Pelajari kesemua 11 singkatan kod Incoterms dan cara mengkategorikannya mengikut Kumpulan Huruf (E, F, C, D) dan Mod Pengangkutan.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+          
+          <!-- Modul 3 Card -->
+          <div class="module-card" id="card-mod3" data-target="section-modul-3">
+            <div class="module-badge-num">03</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <h3>Simulasi Risiko & Kos</h3>
+            <p>Uji kefahaman anda secara visual! Saksikan simulasi pergerakan kapal/lori dari Malaysia ke Jepun bagi melihat di mana risiko dan kos berpindah.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+          
+          <!-- Modul 4 Card -->
+          <div class="module-card" id="card-mod4" data-target="section-modul-4">
+            <div class="module-badge-num">04</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3>Kalkulator Kajian Kes</h3>
+            <p>Selesaikan kajian kes eksport jam tangan pintar Gadget Trend Sdn Bhd ke Jepun menggunakan borang pengiraan kos sebut harga dinamik.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 1: KONSEP & SEJARAH ================= -->
+      <section id="section-modul-1" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 1: Konsep & Sejarah Incoterms</h2>
+            <p>Memahami definisi terma perdagangan global dan garis masa perkembangannya.</p>
+          </div>
+        </div>
+        
+        <div class="intro-grid">
+          <!-- Definisi & Tiga Pilar -->
+          <div class="card">
+            <h3>Apakah itu INCOTERMS?</h3>
+            <p style="margin-bottom: 16px; font-size: 0.95rem;" id="txt-incoterms-definition"></p>
+            
+            <h4 style="margin-top: 20px;">Tiga Pilar Tanggungjawab Utama</h4>
+            <div class="pillars-list" id="pillars-list-container">
+              <!-- Dihasilkan secara dinamik oleh app.js -->
+            </div>
+          </div>
+          
+          <!-- Perkara yang TIDAK Dikawal -->
+          <div class="not-controlled-box">
+            <h3>Perkara Penting yang TIDAK Dikawal oleh Incoterms</h3>
+            <ul id="not-controlled-list">
+              <!-- Dihasilkan secara dinamik oleh app.js -->
+            </ul>
+            <div style="margin-top: 20px; background-color: var(--white); padding: 12px; border-radius: var(--radius-md); font-size: 0.75rem; color: var(--pink); font-weight: 700; border: 1px solid var(--pink-tint);">
+              💡 NOTA SYARAT: Incoterms bukanlah keseluruhan kontrak jualan barangan!
+            </div>
+          </div>
+        </div>
+        
+        <!-- Garis Masa Sejarah Interaktif -->
+        <div class="card timeline-slider-wrap">
+          <h3>Garis Masa Sejarah Evolusi Incoterms</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light);">Gunakan slider di bawah untuk meneroka perubahan terma dari asal-usul (1936) sehingga pembaharuan versi 2020.</p>
+          
+          <div class="timeline-slider-container">
+            <input type="range" min="0" max="8" value="8" class="timeline-slider-input" id="slider-timeline-history">
+            <div class="timeline-ticks" id="timeline-ticks-container">
+              <!-- Ticks dihasilkan secara dinamik -->
+            </div>
+            
+            <div class="timeline-event-card" id="timeline-event-display">
+              <h4 id="timeline-display-year">2020</h4>
+              <p id="timeline-display-text"></p>
+            </div>
+          </div>
+          
+          <div class="timeline-navigation">
+            <button class="btn btn-secondary" id="btn-prev-timeline" style="padding: 6px 12px;">&larr; Tahun Sebelumnya</button>
+            <button class="btn btn-secondary" id="btn-next-timeline" style="padding: 6px 12px;">Tahun Seterusnya &rarr;</button>
+          </div>
+        </div>
+        
+        <!-- Perubahan Versi 2020 -->
+        <div class="card">
+          <h3>Pelarasan Kritikal dalam Incoterms® 2020</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light); margin-bottom: 12px;">Berikut merupakan 3 pembaharuan utama yang membezakan Incoterms 2020 berbanding edisi sebelumnya.</p>
+          
+          <div class="updates-2020-grid" id="updates-2020-container">
+            <!-- Dihasilkan secara dinamik oleh app.js -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 2: 11 TERMA & KATEGORI ================= -->
+      <section id="section-modul-2" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 2: 11 Terma Standard & Klasifikasi</h2>
+            <p>Pelajari kod 3-huruf standard berserta dua cara pengkategorian rasmi.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Klasifikasi 11 Terma Incoterms® 2020</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light); margin-bottom: 16px;">Gunakan penapis di bawah untuk menyusun terma berdasarkan Mod Pengangkutan atau mengikut Kumpulan Abjad (E, F, C, D).</p>
+          
+          <!-- Togel Penapis -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" id="btn-filter-all" data-filter="all">Semua (11 Terma)</button>
+            <button class="filter-btn" id="btn-filter-multimodal" data-filter="multimodal">Multimodal (Sebarang Mod)</button>
+            <button class="filter-btn" id="btn-filter-sea" data-filter="sea">Mod Laut Sahaja</button>
+            <button class="filter-btn" id="btn-filter-group-e" data-filter="E">Kumpulan E (Keluarkan)</button>
+            <button class="filter-btn" id="btn-filter-group-f" data-filter="F">Kumpulan F (Tambang Belum Bayar)</button>
+            <button class="filter-btn" id="btn-filter-group-c" data-filter="C">Kumpulan C (Tambang Telah Bayar)</button>
+            <button class="filter-btn" id="btn-filter-group-d" data-filter="D">Kumpulan D (Ketibaan)</button>
+          </div>
+          
+          <!-- Grid Kad Singkatan -->
+          <div class="terms-grid" id="terms-grid-container">
+            <!-- Dihasilkan secara dinamik oleh app.js -->
+          </div>
+        </div>
+        
+        <!-- Paparan Huraian Terperinci Terma Terpilih -->
+        <div class="card" id="term-detail-section" style="border-color: var(--pink);">
+          <div class="term-detail-container" id="term-detail-content">
+            <!-- Content will be injected dynamically -->
+            <div style="text-align: center; padding: 20px; color: var(--dark-light);">
+              <p>Klik pada mana-mana kad terma Incoterms di atas untuk melihat butiran lengkap, pembagian tugas, serta nota akademik yang padat.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 3: SIMULASI RISIKO & KOS ================= -->
+      <section id="section-modul-3" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 3: Simulasi Pengoperasian & Pindahan Risiko</h2>
+            <p>Perhatikan pergerakan kargo secara fizikal untuk melihat perpindahan risiko, kos, dan borang kastam.</p>
+          </div>
+        </div>
+        
+        <div class="simulator-layout">
+          <!-- Grid Kiri: Peta dan Animasi Kapal -->
+          <div class="calculator-inputs">
+            
+            <!-- Kad Peta Visual Utama -->
+            <div class="simulator-map-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; z-index: 10;">
+                <span class="hero-tag" id="sim-term-title" style="margin-bottom: 0;">Sila Pilih Terma</span>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--dark-light);" id="sim-mode-display">Mod Transit: -</span>
+              </div>
+              
+              <!-- Laluan Penghantaran Kargo -->
+              <div class="shipping-lane">
+                <!-- Penunjuk Lokasi Asal -->
+                <div class="location-marker origin">
+                  <div class="location-pin"></div>
+                  <div class="location-name">Malaysia</div>
+                  <div class="location-detail">Gudang Pengeksport</div>
+                </div>
+                
+                <!-- Kapal/Lori Kargo -->
+                <div class="cargo-vehicle" id="cargo-transit-vehicle">
+                  <!-- SVG Lori (akan diganti atau dimanipulasi melalui JS) -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                
+                <!-- Penunjuk Pindahan Risiko -->
+                <div class="risk-transfer-indicator" id="sim-risk-indicator">
+                  Risiko Berpindah!
+                </div>
+                
+                <!-- Penunjuk Lokasi Destinasi -->
+                <div class="location-marker destination">
+                  <div class="location-pin"></div>
+                  <div class="location-name">Jepun (Tokyo)</div>
+                  <div class="location-detail">Gudang Pengimport</div>
+                </div>
+              </div>
+              
+              <!-- Garisan Pembahagian Kos Pengeksport/Pengimport -->
+              <div class="cost-bars-container">
+                <div class="cost-bar-row">
+                  <span class="cost-bar-label">Kos Penjual (Pink)</span>
+                  <div class="cost-bar-track">
+                    <div class="cost-bar-fill seller" id="cost-bar-seller"></div>
+                  </div>
+                </div>
+                
+                <div class="cost-bar-row">
+                  <span class="cost-bar-label">Kos Pembeli (Blue)</span>
+                  <div class="cost-bar-track">
+                    <div class="cost-bar-fill buyer" id="cost-bar-buyer"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Paparan Info Status Simulasi Semasa -->
+            <div class="card">
+              <h3>Maklumat Titik Transit Bagi Terma Terpilih</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
+                <div style="background-color: var(--pink-light); padding: 12px; border-radius: var(--radius-md); border-left: 4px solid var(--pink);">
+                  <strong style="color: var(--pink-hover); font-size: 0.85rem;">🔴 TITIK KOS (COST ALLOCATION)</strong>
+                  <p id="sim-cost-point-text" style="font-size: 0.8rem; margin-top: 4px; color: var(--dark-light);">-</p>
+                </div>
+                
+                <div style="background-color: var(--baby-blue-light); padding: 12px; border-radius: var(--radius-md); border-left: 4px solid var(--baby-blue-hover);">
+                  <strong style="color: #0284c7; font-size: 0.85rem;">🛡️ TITIK RISIKO (RISK TRANSFER)</strong>
+                  <p id="sim-risk-point-text" style="font-size: 0.8rem; margin-top: 4px; color: var(--dark-light);">-</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Bahagian Pelepasan Kastam Dinamik -->
+            <div class="card">
+              <h3>Tanggungjawab Dokumentasi Kastam Malaysia & Jepun</h3>
+              <p style="font-size: 0.8rem; color: var(--dark-light); margin-bottom: 12px;">Pihak yang bertanggungjawab menguruskan pelepasan kastam & cukai (Borang K1/K2) bagi terma ini.</p>
+              
+              <div class="customs-visual-box">
+                <!-- Borang K2 Eksport -->
+                <div class="customs-doc-card active" id="sim-customs-export-card">
+                  <div class="customs-doc-header">
+                    <span class="customs-doc-title">Eksport (Kastam Malaysia)</span>
+                    <span class="customs-doc-badge export">Borang K2</span>
+                  </div>
+                  <div class="customs-doc-body">
+                    <div class="customs-doc-row">
+                      <span class="customs-doc-label">Pihak:</span>
+                      <span class="customs-doc-value" id="sim-customs-export-pihak">-</span>
+                    </div>
+                    <div class="customs-stamp" id="sim-customs-export-stamp">BELUM DISAHKAN</div>
+                  </div>
+                </div>
+                
+                <!-- Borang K1 Import -->
+                <div class="customs-doc-card active" id="sim-customs-import-card">
+                  <div class="customs-doc-header">
+                    <span class="customs-doc-title">Import (Kastam Jepun)</span>
+                    <span class="customs-doc-badge import">Borang K1</span>
+                  </div>
+                  <div class="customs-doc-body">
+                    <div class="customs-doc-row">
+                      <span class="customs-doc-label">Pihak:</span>
+                      <span class="customs-doc-value" id="sim-customs-import-pihak">-</span>
+                    </div>
+                    <div class="customs-stamp" id="sim-customs-import-stamp">BELUM DISAHKAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Grid Kanan: Pilihan Terma dan Butang Jalankan -->
+          <div class="simulator-controls">
+            <div class="card" style="height: 100%;">
+              <h3>Pilih Terma Ujian</h3>
+              <p style="font-size: 0.8rem; color: var(--dark-light); margin-bottom: 12px;">Pilih salah satu dari 11 terma di bawah untuk memulakan simulasi.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 8px;" id="sim-terms-selector-list">
+                <!-- Dihasilkan secara dinamik -->
+              </div>
+              
+              <button class="btn btn-primary" id="btn-run-simulation" style="width: 100%; justify-content: center; margin-top: 16px; padding: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Jalankan Simulasi Transit
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 4: KALKULATOR KAJIAN KES ================= -->
+      <section id="section-modul-4" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 4: Pengiraan Kos Kajian Kes (Landed Cost)</h2>
+            <p>Lakukan pengiraan harga sebut harga (Quotation Price) berdasarkan senario realistik eksport jam tangan pintar.</p>
+          </div>
+        </div>
+        
+        <!-- Perincian Kajian Kes Asal -->
+        <div class="case-study-info">
+          <h4>Kajian Kes: Gadget Trend Sdn Bhd (Pulau Pinang &rarr; Tokyo, Jepun)</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 12px;">Syarikat ingin mengeksport <strong>1,000 unit Jam Tangan Pintar</strong> kepada pembeli di Tokyo. Nilai kos operasi yang diisytiharkan adalah seperti berikut. Penuhkan borang di sebelah kiri untuk menguji pengiraan sebutharga.</p>
+          
+          <ul id="case-study-params-list">
+            <!-- Dynamic parameters from data.js -->
+          </ul>
+        </div>
+        
+        <div class="calculator-layout">
+          <!-- Input Form Dinamik -->
+          <div class="card calculator-inputs">
+            <h3>Borang Nilai Kos Eksport</h3>
+            <p style="font-size: 0.75rem; color: var(--dark-light); margin-bottom: 8px;">Ubah nilai di bawah dan lihat perubahan secara langsung pada sebut harga.</p>
+            
+            <!-- Input Kos Seunit -->
+            <div class="calc-input-group">
+              <label for="input-exworks-price">Kos Ex-Works (EXW) Seunit</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-exworks-price" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Lori Tempatan -->
+            <div class="calc-input-group">
+              <label for="input-truck-to-port">Lori ke Pelabuhan Pulau Pinang</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-truck-to-port" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Borang K2 Eksport -->
+            <div class="calc-input-group">
+              <label for="input-export-clearance">Kastam Eksport & Dokumentasi (K2)</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-export-clearance" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Tambang Laut -->
+            <div class="calc-input-group">
+              <label for="input-ocean-freight">Tambang Kapal Laut ke Tokyo</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-ocean-freight" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Insurans Kargo -->
+            <div class="calc-input-group">
+              <label for="input-cargo-insurance">Polisi Insurans Kargo Laut</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-cargo-insurance" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- THC Destinasi -->
+            <div class="calc-input-group">
+              <label for="input-tokyo-thc">Caj Pengendalian Pelabuhan Tokyo (THC)</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-tokyo-thc" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Duti Import Jepun -->
+            <div class="calc-input-group">
+              <label for="input-import-duty">Duti Import & Kastam Jepun</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-import-duty" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Lori Akhir Gudang Import -->
+            <div class="calc-input-group">
+              <label for="input-final-delivery">Lori Akhir ke Gudang Tokyo</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-final-delivery" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <button class="btn btn-secondary" id="btn-reset-calc-inputs" style="margin-top: 8px; justify-content: center;">
+              Reset Nilai kepada Asal
+            </button>
+          </div>
+          
+          <!-- Hasil Sebut Harga & Penerangan Akademik -->
+          <div class="quotations-container">
+            
+            <!-- Kad Hasil EXW -->
+            <div class="quotation-result-card" id="calc-card-EXW">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">1. EXW (Ex-Works) - Di Gudang Penjual</span>
+                <span class="quotation-result-value" id="calc-val-EXW">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-EXW">Formula: Kuantiti &times; Kos EXW Seunit</div>
+              <p class="quotation-result-explanation">Nota: Pembeli mengambil sendiri barang di kilang. Tanggungjawab penjual selesai setelah melabel & membungkus barangan di gudang Pulau Pinang.</p>
+            </div>
+            
+            <!-- Kad Hasil FOB -->
+            <div class="quotation-result-card" id="calc-card-FOB">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">2. FOB (Free on Board) - Pelabuhan Pulau Pinang</span>
+                <span class="quotation-result-value" id="calc-val-FOB">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-FOB">Formula: EXW + Lori Tempatan + Kastam Eksport</div>
+              <p class="quotation-result-explanation">Nota: Risiko dan kos berpindah daripada penjual kepada pembeli selepas barangan berada dengan selamat di atas kapal di Pelabuhan Pulau Pinang.</p>
+            </div>
+            
+            <!-- Kad Hasil CIF -->
+            <div class="quotation-result-card" id="calc-card-CIF">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">3. CIF (Cost, Insurance & Freight) - Pelabuhan Tokyo</span>
+                <span class="quotation-result-value" id="calc-val-CIF">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-CIF">Formula: FOB + Tambang Kapal Laut + Insurans Kargo</div>
+              <p class="quotation-result-explanation">Nota: Kos pengangkutan laut dan insurans dibayar oleh penjual sehingga ke pelabuhan Tokyo, tetapi risiko kerosakan di lautan tetap ditanggung oleh pembeli selepas dimuat naik ke kapal.</p>
+            </div>
+            
+            <!-- Kad Hasil DDP -->
+            <div class="quotation-result-card" id="calc-card-DDP">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">4. DDP (Delivered Duty Paid) - Gudang Pembeli (Tokyo)</span>
+                <span class="quotation-result-value" id="calc-val-DDP">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-DDP">Formula: CIF + Caj Pelabuhan Tokyo + Duti Import Jepun + Lori Penghantaran Akhir</div>
+              <p class="quotation-result-explanation">Nota: Penjual menanggung semua kos pengangkutan domestik/antarabangsa, pelepasan kastam import, serta duti kastam domestik Jepun sehingga tiba di pintu gudang Tokyo.</p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= SEKSYEN KUIZ UJI MINDA ================= -->
+      <section id="section-kuiz" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Kuiz Pengukuhan Minda Incoterms</h2>
+            <p>Uji kefahaman teori, klasifikasi, dan pengiraan sebutharga anda di bawah.</p>
+          </div>
+        </div>
+        
+        <div class="card quiz-container" id="quiz-gameplay-container">
+          <div class="quiz-header">
+            <span class="quiz-q-num" id="quiz-question-number-display">Soalan 1 daripada 10</span>
+            <span class="quiz-score-badge" id="quiz-score-display">Skor: 0 / 100</span>
+          </div>
+          
+          <!-- Indikator kemajuan kuiz -->
+          <div class="quiz-progress-dots" id="quiz-progress-dots-container">
+            <!-- Bulatan kecil dihasilkan dinamik -->
+          </div>
+          
+          <!-- Soalan kuiz -->
+          <div class="quiz-question-box">
+            <h3 id="quiz-question-text">Pemuatan soalan...</h3>
+            
+            <div class="quiz-options-list" id="quiz-options-container">
+              <!-- Butang pilihan jawapan dihasilkan dinamik -->
+            </div>
+          </div>
+          
+          <!-- Maklum balas / Huraian jawapan -->
+          <div class="quiz-explanation-box" id="quiz-explanation-box" style="display: none;">
+            <h4 id="quiz-explanation-title">Maklum Balas Jawapan</h4>
+            <p id="quiz-explanation-text">Penerangan mengenai jawapan yang betul di sini...</p>
+          </div>
+          
+          <!-- Tindakan Kuiz -->
+          <div class="quiz-actions">
+            <button class="btn btn-primary" id="btn-next-question" style="display: none;">Soalan Seterusnya &rarr;</button>
+          </div>
+        </div>
+        
+        <!-- Halaman Sijil Selesai Kuiz -->
+        <div class="card quiz-container" id="quiz-result-container" style="display: none;">
+          <div class="quiz-result-screen">
+            
+            <!-- Rangka Sijil Digital -->
+            <div class="certificate-card" id="digital-certificate-card">
+              <div class="certificate-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              </div>
+              <h3>SIJIL PENCAPAIAN</h3>
+              <p class="cert-title">Kemahiran Perdagangan Antarabangsa (SLK30203)</p>
+              <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--dark-light);">Dengan ini disahkan bahawa</p>
+              <p class="student-name" id="cert-student-name">Pelajar Perkhidmatan Logistik</p>
+              <p style="font-size: 0.85rem; margin-bottom: 20px; color: var(--dark-light);">telah menamatkan ujian interaktif dengan keputusan cemerlang:</p>
+              <p class="cert-score">Markah Kuiz: <span id="cert-quiz-score">90 / 100</span></p>
+              <p style="font-size: 0.7rem; color: var(--dark-light); margin-top: 24px; border-top: 1px dashed var(--border-color); padding-top: 12px;">KKPPS @ KOLEJ KOMUNITI PAPAR &bull; PENGURUSAN EKSPORT</p>
+            </div>
+            
+            <h3>Syabas! Anda Telah Berjaya Menamatkan Kuiz</h3>
+            <p style="color: var(--dark-light); font-size: 0.9rem; margin-bottom: 24px;">Anda boleh memuat turun nota lengkap PDF yang memuatkan skema jawapan amali untuk rujukan peperiksaan anda.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <button class="btn btn-primary" id="btn-restart-quiz">Cuba Kuiz Semula</button>
+              <button class="btn btn-secondary" id="btn-download-notes-end">Muat Turun Nota PDF</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    
+    <!-- Footer Web -->
+    <footer class="no-print">
+      <p>&copy; 2026 Sabah Digital Academy @ Kolej Komuniti Papar. Dibangunkan untuk Program Sijil Perkhidmatan Logistik (SLK30203 Pengurusan Import dan Eksport). Hak Cipta Terpelihara.</p>
+    </footer>
+    
+  </div>
+  
+  <!-- ================= MODAL LOGIN PENSYARAH ================= -->
+  <div class="modal-overlay no-print" id="modal-lecturer-login">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="btn-close-login-modal">&times;</button>
+      <div class="modal-header">
+        <h3>Akses Panel Pensyarah</h3>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
+        <p style="font-size: 0.85rem; color: var(--dark-light); text-align: center;">Sila masukkan kata laluan keselamatan pensyarah untuk menukar parameter kajian kes dan memantau kemajuan kelas.</p>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="input-lecturer-password" style="font-size: 0.8rem; font-weight: 700;">Kata Laluan:</label>
+          <input type="password" id="input-lecturer-password" style="padding: 10px; border-radius: 8px; border: 1.5px solid var(--border-color); font-family: var(--font-body);" placeholder="Masukkan kata laluan...">
+          <span id="lecturer-login-error" style="color: var(--error); font-size: 0.75rem; font-weight: 700; display: none;">Kata laluan salah! Sila cuba lagi. (Petunjuk: pensyarah123)</span>
+        </div>
+        <button class="btn btn-primary" id="btn-submit-lecturer-password" style="justify-content: center; margin-top: 8px;">Log Masuk</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ================= MODAL PANEL PENSYARAH ================= -->
+  <div class="modal-overlay no-print" id="modal-lecturer-panel">
+    <div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close-btn" id="btn-close-panel-modal">&times;</button>
+      <div class="modal-header">
+        <h3 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          Panel Kawalan Pensyarah
+        </h3>
+      </div>
+      
+      <div class="modal-body lecturer-dashboard-layout" style="margin-top: 16px;">
+        
+        <!-- Widget Ringkasan Prestasi Kelas -->
+        <div class="lecturer-widgets">
+          <div class="widget-card">
+            <h4>Jumlah Pelajar</h4>
+            <div class="widget-value" id="widget-total-students">6 orang</div>
+          </div>
+          <div class="widget-card">
+            <h4>Purata Progress</h4>
+            <div class="widget-value" id="widget-avg-progress">75%</div>
+          </div>
+          <div class="widget-card">
+            <h4>Purata Skor Kuiz</h4>
+            <div class="widget-value" id="widget-avg-quiz">72%</div>
+          </div>
+        </div>
+        
+        <!-- Pindah Nilai Kajian Kes Secara Live -->
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="color: var(--pink); margin-bottom: 8px;">Ubah Parameter Kajian Kes (Live)</h4>
+          <p style="font-size: 0.75rem; color: var(--dark-light); margin-bottom: 12px;">Pensyarah boleh mengubah nilai asal bagi jam tangan pintar. Nilai baharu ini akan diisi secara automatik dalam borang pelajar untuk menguji kecekapan mereka mengira jawapan tersuai.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+            <div class="calc-input-group">
+              <label for="lect-exworks-price" style="font-size: 0.75rem;">Kos EXW Seunit</label>
+              <input type="number" id="lect-exworks-price" style="padding: 6px; border-radius: 6px; border: 1.5px solid var(--border-color);" value="100">
+            </div>
+            <div class="calc-input-group">
+              <label for="lect-ocean-freight" style="font-size: 0.75rem;">Tambang Kapal Laut</label>
+              <input type="number" id="lect-ocean-freight" style="padding: 6px; border-radius: 6px; border: 1.5px solid var(--border-color);" value="2500">
+            </div>
+            <div class="calc-input-group">
+              <label for="lect-import-duty" style="font-size: 0.75rem;">Duti Import Kastam</label>
+              <input type="number" id="lect-import-duty" style="padding: 6px; border-radius: 6px; border: 1.5px solid var(--border-color);" value="3000">
+            </div>
+            <div class="calc-input-group" style="justify-content: flex-end;">
+              <button class="btn btn-primary" id="btn-update-lect-params" style="padding: 8px; font-size: 0.8rem; width: 100%; justify-content: center;">
+                Kemas Kini Kelas
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Status Kemajuan Pelajar Aktif -->
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="margin-bottom: 8px;">Senarai Markah & Kemajuan Pelajar</h4>
+          <div class="student-table-container">
+            <table class="student-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nama Pelajar</th>
+                  <th>Kemajuan</th>
+                  <th>Skor Kuiz</th>
+                  <th>Nota PDF</th>
+                  <th>Aktif Terakhir</th>
+                </tr>
+              </thead>
+              <tbody id="student-table-body">
+                <!-- Injected dynamically by app.js -->
+              </tbody>
+            </table>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 12px; flex-wrap: wrap; gap: 8px;">
+            <button class="btn btn-secondary" id="btn-export-students-csv" style="padding: 6px 12px; font-size: 0.8rem;">
+              Eksport Laporan (CSV)
+            </button>
+            <button class="btn btn-lecturer" id="btn-reset-class-data" style="padding: 6px 12px; font-size: 0.8rem; color: var(--error); border-color: var(--error);">
+              Sifar Semua Kemajuan Kelas
+            </button>
+          </div>
+        </div>
+        
+        <!-- Sekat / Buka Kunci Modul Kelas -->
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="margin-bottom: 8px;">Kawalan Pintu Modul (Kunci Kelas)</h4>
+          <p style="font-size: 0.75rem; color: var(--dark-light); margin-bottom: 12px;">Buka kunci atau sekat akses pelajar bagi fasa pembelajaran tertentu.</p>
+          <div class="lock-controls">
+            <!-- Lock Modul 3 -->
+            <div class="lock-row" id="lock-row-modul-3">
+              <div class="lock-row-info">
+                <h5>Modul 3: Simulasi Risiko & Kastam</h5>
+                <p>Kunci akses simulasi fizikal pergerakan kargo.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-lock-mod3" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <!-- Lock Modul 4 -->
+            <div class="lock-row" id="lock-row-modul-4">
+              <div class="lock-row-info">
+                <h5>Modul 4: Pengiraan Kos Kajian Kes</h5>
+                <p>Kunci akses kalkulator dan tugasan amali.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-lock-mod4" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <!-- Lock Kuiz -->
+            <div class="lock-row" id="lock-row-kuiz">
+              <div class="lock-row-info">
+                <h5>Kuiz Uji Minda Pengokohan</h5>
+                <p>Kunci ujian aneka pilihan dari diakses oleh pelajar awal.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-lock-kuiz" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BUKU NOTA AKADEMIK DIJANA BAGI CETAKAN PDF (HIDDEN) ================= -->
+  <div id="academic-handbook-printable" class="academic-handbook-container">
+    <div class="handbook-header">
+      <h1 id="pdf-handbook-title">BUKU NOTA AKADEMIK INCOTERMS® 2020</h1>
+      <h2>Kolej Komuniti Papar &bull; KKPPS</h2>
+      <p style="margin-top: 8px; font-weight: 700;">KOD KURSUS: SLK30203 PENGURUSAN IMPORT DAN EKSPORT</p>
+      <p style="font-size: 0.8rem; color: #718096; margin-top: 4px;">Diperibadikan untuk: <span id="pdf-student-name" style="text-decoration: underline;">Pelajar SPL</span></p>
+    </div>
+    
+    <!-- Bahagian 1 -->
+    <div class="handbook-section">
+      <h3>1.0 Menerangkan Konsep INCOTERMS</h3>
+      <p><strong>1.1 Definisi:</strong> INCOTERMS (International Commercial Terms) ialah satu set kod tiga huruf yang diiktiraf di peringkat global, diterbitkan oleh Dewan Perniagaan Antarabangsa (International Chamber of Commerce - ICC). Fungsi utamanya adalah menentukan pembahagian tiga perkara penting dalam kontrak jualan antarabangsa:</p>
+      <ul>
+        <li><strong>Tanggungjawab (Tasks):</strong> Siapa yang menguruskan pengangkutan, insurans, dokumen, dan pelepasan kastam eksport-import.</li>
+        <li><strong>Risiko (Risk):</strong> Di mana dan bila titik pindahan risiko (point of risk transfer) berlaku daripada penjual kepada pembeli.</li>
+        <li><strong>Kos (Costs):</strong> Siapa yang membayar tambang pengangkutan, insurans, duti cukai, dan caj pelabuhan.</li>
+      </ul>
+      <p><strong>Perkara penting yang TIDAK dikawal oleh Incoterms:</strong> Incoterms bukanlah keseluruhan kontrak jualan, tidak menguruskan hak milik sah barangan (title of property), harga barang, terma pembayaran, atau remedi undang-undang sekiranya berlaku kemungkiran kontrak.</p>
+    </div>
+    
+    <!-- Bahagian 2 -->
+    <div class="handbook-section">
+      <h3>2.0 Sejarah & Evolusi 2020</h3>
+      <p>Ditubuhkan pada tahun 1936 oleh ICC bagi mengatasi perbezaan undang-undang domestik. Mengalami evolusi pada tahun 1953, 1967, 1976, 1980, 1990, 2000, dan 2010. Pindaan terkini <strong>Incoterms® 2020</strong> memperkenalkan pelarasan berikut:</p>
+      <ol>
+        <li>Menggantikan terma <strong>DAT</strong> (Delivered at Terminal) kepada <strong>DPU</strong> (Delivered at Place Unloaded) untuk membolehkan pemunggahan di mana-mana tempat.</li>
+        <li>Syarat insurans minimum terma <strong>CIP</strong> ditingkatkan kepada perlindungan *Institute Cargo Clauses (A) (All Risks)*, manakala <strong>CIF</strong> kekal pada *Clauses (C)* (Perlindungan minimum).</li>
+        <li>Membenarkan penggunaan pengangkutan sendiri (kenderaan syarikat) di bawah terma FCA, DAP, DPU, dan DDP tanpa penglibatan syarikat logistik pihak ketiga.</li>
+      </ol>
+    </div>
+    
+    <!-- Bahagian 3 -->
+    <div class="handbook-section">
+      <h3>3.0 Senarai 11 Terma Standard & Kategori</h3>
+      <table class="handbook-table">
+        <thead>
+          <tr>
+            <th>Kod</th>
+            <th>Terma Asal</th>
+            <th>Terma Melayu</th>
+            <th>Mod Pengangkutan</th>
+            <th>Kumpulan</th>
+          </tr>
+        </thead>
+        <tbody id="pdf-terms-table-body">
+          <!-- Dipenuhi secara dinamik -->
+        </tbody>
+      </table>
+      
+      <p style="margin-top: 12px;"><strong>3.1 Kategori A (Berdasarkan Mod Pengangkutan):</strong></p>
+      <ul>
+        <li><strong>Multimodal (7 Terma):</strong> EXW, FCA, CPT, CIP, DAP, DPU, DDP (Sesuai untuk sebarang mod pengangkutan: darat, udara, laut, rel).</li>
+        <li><strong>Laut dan Laluan Air Sahaja (4 Terma):</strong> FAS, FOB, CFR, CIF (Hanya digunakan apabila tempat penyerahan/destinasi adalah pelabuhan ke pelabuhan).</li>
+      </ul>
+      
+      <p><strong>3.2 Kategori B (Berdasarkan Kumpulan Abjad):</strong></p>
+      <ul>
+        <li><strong>Kumpulan E (Departure) [EXW]:</strong> Penjual meletakkan tanggungjawab kos & risiko maksimum kepada pembeli. Penjual hanya perlu menyediakan barang di kilang.</li>
+        <li><strong>Kumpulan F (Main Carriage Unpaid) [FCA, FAS, FOB]:</strong> Penjual menyerahkan barangan kepada pengangkut lantikan pembeli di pelabuhan pelepasan. Pembeli membayar tambang laut utama.</li>
+        <li><strong>Kumpulan C (Main Carriage Paid) [CFR, CIF, CPT, CIP]:</strong> Penjual membayar tambang laut utama ke destinasi, tetapi risiko berpindah di negara asal (Two-Point Transfer).</li>
+        <li><strong>Kumpulan D (Arrival) [DAP, DPU, DDP]:</strong> Penjual menanggung kos & risiko penuh membawa barang sehingga ke destinasi negara import.</li>
+      </ul>
+    </div>
+    
+    <!-- Bahagian 4 -->
+    <div class="handbook-section" style="page-break-before: always;">
+      <h3>4.0 Pengoperasian Kastam Malaysia (Borang K1/K2)</h3>
+      <p>Bagi transaksi eksport & import di Malaysia, tanggungjawab pelepasan dokumen kastam adalah tetap:</p>
+      <ul>
+        <li><strong>Deklarasi Eksport (Borang K2):</strong> Tanggungjawab <strong>Penjual</strong> untuk memproses & membayar duti kastam eksport. <em>Pengecualian:</em> Terma <strong>EXW</strong>, di mana pembeli asing terpaksa menguruskan K2 di Malaysia.</li>
+        <li><strong>Deklarasi Import (Borang K1):</strong> Tanggungjawab <strong>Pembeli</strong> untuk memproses & membayar duti import/SST. <em>Pengecualian:</em> Terma <strong>DDP</strong>, di mana penjual asing bertanggungjawab sepenuhnya menguruskan K1 dan membayar cukai domestik Malaysia.</li>
+      </ul>
+    </div>
+    
+    <!-- Bahagian 5 -->
+    <div class="handbook-section">
+      <h3>5.0 Kajian Kes & Skema Jawapan Amali</h3>
+      <p><strong>Senario Eksport Gadget Trend Sdn Bhd (Pulau Pinang ke Tokyo, Jepun):</strong></p>
+      <p>Syarikat mengeksport 1,000 unit jam tangan pintar. Parameter nilai operasi yang diisytiharkan adalah seperti berikut:</p>
+      <table class="handbook-table" style="max-width: 500px;">
+        <tbody id="pdf-case-study-params-body">
+          <!-- Dynamic params will be loaded -->
+        </tbody>
+      </table>
+      
+      <p style="margin-top: 16px;"><strong>5.1 Jalan Pengiraan & Jawapan Sebut Harga:</strong></p>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-EXW-box">
+        <!-- Will be updated dynamically -->
+      </div>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-FOB-box">
+        <!-- Will be updated dynamically -->
+      </div>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-CIF-box">
+        <!-- Will be updated dynamically -->
+      </div>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-DDP-box">
+        <!-- Will be updated dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
