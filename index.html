@@ -1,0 +1,4557 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub Pembelajaran Incoterms SLK30203 | KKPPS</title>
+  
+  <!-- Meta SEO -->
+  <meta name="description" content="Platform Pembelajaran Digital Interaktif Incoterms (Silibus SLK30203 Pengurusan Import dan Eksport). Sesuai untuk Sijil Perkhidmatan Logistik, Kolej Komuniti Papar.">
+  <meta name="author" content="KKPPS @ Kolej Komuniti Papar">
+  
+  <!-- CSS Stylesheet -->
+  <style>
+/* css/style.css - Gaya Visual Platform Pembelajaran Incoterms SLK30203 */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Reka Bentuk Sistem & Token */
+:root {
+  --pink: #ff5c97;
+  --pink-hover: #ff337a;
+  --pink-light: #fff0f5;
+  --pink-tint: #ffe4ee;
+  --baby-blue: #85d2f2;
+  --baby-blue-hover: #58bfe9;
+  --baby-blue-light: #eafdff;
+  --baby-blue-tint: #d4f3ff;
+  --white: #ffffff;
+  --dark: #2d3748;
+  --dark-light: #4a5568;
+  --bg-gray: #f7fafc;
+  --border-color: #e2e8f0;
+  
+  --success: #38a169;
+  --success-light: #f0fff4;
+  --warning: #dd6b20;
+  --warning-light: #fffaf0;
+  --error: #e53e3e;
+  --error-light: #fff5f5;
+  
+  --font-title: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(255, 92, 151, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.05);
+  --shadow-premium: 0 15px 35px rgba(255, 92, 151, 0.12);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+}
+
+/* Reset Asas */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-gray);
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-title);
+  color: var(--dark);
+  font-weight: 700;
+}
+
+/* Pengendalian Halaman Cetakan (Untuk PDF) */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .academic-handbook-container {
+    display: block !important;
+  }
+  .card, .section {
+    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
+
+.print-only {
+  display: none;
+}
+
+/* Rangka Utama (Layout) */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Navigasi */
+header {
+  background-color: var(--white);
+  border-bottom: 2px solid var(--pink-tint);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-badge {
+  background: linear-gradient(135deg, var(--pink), var(--baby-blue));
+  color: var(--white);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.1rem;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 4px 10px rgba(255, 92, 151, 0.25);
+  letter-spacing: 0.5px;
+}
+
+.logo-text h1 {
+  font-size: 1.3rem;
+  color: var(--dark);
+  font-weight: 800;
+}
+
+.logo-text p {
+  font-size: 0.75rem;
+  color: var(--dark-light);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Progress Tracker */
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  width: 180px;
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar-bg {
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pink), var(--baby-blue));
+  border-radius: 4px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Butang-butang Khas */
+.btn {
+  font-family: var(--font-title);
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: var(--pink);
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(255, 92, 151, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--pink-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 92, 151, 0.3);
+}
+
+.btn-secondary {
+  background-color: var(--baby-blue-tint);
+  color: var(--dark);
+  border: 1.5px solid var(--baby-blue);
+}
+
+.btn-secondary:hover {
+  background-color: var(--baby-blue);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 191, 233, 0.2);
+}
+
+.btn-lecturer {
+  background-color: var(--white);
+  color: var(--pink);
+  border: 2px dashed var(--pink);
+}
+
+.btn-lecturer:hover {
+  background-color: var(--pink-light);
+  transform: translateY(-2px);
+}
+
+/* Menu Utama / Tabs */
+.tabs-container {
+  background-color: var(--white);
+  box-shadow: var(--shadow-sm);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tabs-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+
+.tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  padding: 10px 18px;
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--dark-light);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab-btn:hover {
+  background-color: var(--baby-blue-light);
+  color: var(--dark);
+}
+
+.tab-btn.active {
+  background-color: var(--pink-light);
+  color: var(--pink);
+  box-shadow: inset 0 -2px 0 var(--pink);
+}
+
+.tab-btn.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Kandungan Utama (Main) */
+main {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px;
+  flex: 1;
+}
+
+/* Seksyen Papan Pemuka (Dashboard) */
+.dashboard-hero {
+  background: linear-gradient(135deg, var(--pink-light) 0%, var(--baby-blue-light) 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 32px;
+  border: 2px solid var(--pink-tint);
+  box-shadow: var(--shadow-md);
+}
+
+.dashboard-hero::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hero-tag {
+  background-color: var(--pink-tint);
+  color: var(--pink-hover);
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 6px 12px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.dashboard-hero h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  color: var(--dark);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.dashboard-hero p {
+  color: var(--dark-light);
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+/* Grid Modul Dashboard */
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.module-card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  padding: 28px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+}
+
+.module-card:hover {
+  transform: translateY(-8px);
+  border-color: var(--pink);
+  box-shadow: var(--shadow-premium);
+}
+
+.module-card.locked {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #fafbfc;
+}
+
+.module-card.locked:hover {
+  transform: none;
+  border-color: var(--border-color);
+  box-shadow: var(--shadow-sm);
+}
+
+.module-badge-num {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: var(--baby-blue-tint);
+  color: var(--baby-blue-hover);
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.4rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-card.locked .module-badge-num {
+  background-color: var(--border-color);
+  color: var(--dark-light);
+}
+
+.module-icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--pink-light);
+  color: var(--pink);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.module-card.locked .module-icon {
+  background-color: var(--border-color);
+  color: var(--dark-light);
+}
+
+.module-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.module-card p {
+  color: var(--dark-light);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.card-footer-action {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.module-card.locked .card-footer-action {
+  color: var(--dark-light);
+}
+
+/* Modul-Modul Utama (Hidden by default) */
+.module-section {
+  display: none;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.module-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Bahagian Tajuk Seksyen */
+.section-header {
+  margin-bottom: 24px;
+  border-bottom: 2px solid var(--pink-tint);
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-title-wrap h2 {
+  font-size: 1.8rem;
+  color: var(--dark);
+}
+
+.section-title-wrap p {
+  color: var(--dark-light);
+  font-size: 0.95rem;
+}
+
+/* Kad Standard Platform */
+.card {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border-color);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 24px;
+}
+
+/* Grid & Info Modul 1 */
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.pillar-card {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pillar-card:hover, .pillar-card.active {
+  border-color: var(--pink);
+  background-color: var(--pink-light);
+}
+
+.pillar-card-icon {
+  background-color: var(--pink-tint);
+  color: var(--pink);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-card.active .pillar-card-icon {
+  background-color: var(--pink);
+  color: var(--white);
+}
+
+.pillar-card-content h4 {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.pillar-card-content p {
+  font-size: 0.85rem;
+  color: var(--dark-light);
+}
+
+.not-controlled-box {
+  background-color: var(--baby-blue-light);
+  border: 1.5px dashed var(--baby-blue);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  height: 100%;
+}
+
+.not-controlled-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--dark);
+}
+
+.not-controlled-box ul {
+  list-style: none;
+}
+
+.not-controlled-box li {
+  margin-bottom: 12px;
+  padding-left: 24px;
+  position: relative;
+  font-size: 0.9rem;
+}
+
+.not-controlled-box li::before {
+  content: "❌";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* Modul 1: Garis Masa Sejarah */
+.timeline-slider-wrap {
+  margin-top: 32px;
+}
+
+.timeline-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.timeline-slider-container {
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-top: 16px;
+  position: relative;
+}
+
+.timeline-slider-input {
+  width: 100%;
+  margin: 16px 0;
+  accent-color: var(--pink);
+  height: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.timeline-ticks {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.timeline-tick-label {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--dark-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.timeline-tick-label.active {
+  color: var(--pink);
+  transform: scale(1.15);
+}
+
+.timeline-event-card {
+  background-color: var(--pink-light);
+  border-left: 4px solid var(--pink);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  animation: slideFadeIn 0.3s ease-out;
+}
+
+@keyframes slideFadeIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.timeline-event-card h4 {
+  font-size: 1.3rem;
+  color: var(--pink);
+  margin-bottom: 4px;
+}
+
+.timeline-event-card p {
+  font-size: 0.95rem;
+}
+
+/* Modul 1: Pembaharuan 2020 */
+.updates-2020-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.update-2020-card {
+  background-color: var(--white);
+  border: 2px solid var(--baby-blue-tint);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: var(--transition);
+}
+
+.update-2020-card:hover {
+  border-color: var(--baby-blue);
+  background-color: var(--baby-blue-light);
+}
+
+.update-2020-card h4 {
+  color: var(--dark);
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  border-bottom: 1.5px solid var(--baby-blue-tint);
+  padding-bottom: 8px;
+}
+
+.update-2020-card p {
+  font-size: 0.85rem;
+  color: var(--dark-light);
+}
+
+/* Modul 2: Terma & Kategori */
+.filter-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.filter-btn {
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover {
+  background-color: var(--bg-gray);
+}
+
+.filter-btn.active {
+  background-color: var(--pink);
+  color: var(--white);
+  border-color: var(--pink);
+}
+
+/* Grid 11 Terma */
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.term-mini-card {
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.term-mini-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background-color: var(--baby-blue);
+}
+
+/* Mewarnakan Kumpulan Huruf */
+.term-mini-card.group-E::before { background-color: #ffd23f; }
+.term-mini-card.group-F::before { background-color: #3b82f6; }
+.term-mini-card.group-C::before { background-color: var(--pink); }
+.term-mini-card.group-D::before { background-color: #10b981; }
+
+.term-mini-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--baby-blue);
+}
+
+.term-mini-card.active {
+  border-color: var(--pink);
+  background-color: var(--pink-light);
+}
+
+.term-mini-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.term-mini-code {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--dark);
+}
+
+.term-mini-group-badge {
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+/* Warna Kumpulan Lencana */
+.badge-E { background-color: #fffbeb; color: #b45309; }
+.badge-F { background-color: #eff6ff; color: #1d4ed8; }
+.badge-C { background-color: var(--pink-light); color: var(--pink-hover); }
+.badge-D { background-color: #ecfdf5; color: #047857; }
+
+.term-mini-name {
+  font-size: 0.85rem;
+  color: var(--dark-light);
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.term-mini-meta {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.term-meta-tag {
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: var(--border-color);
+}
+
+.term-meta-tag.sea {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.term-meta-tag.multimodal {
+  background-color: #faf5ff;
+  color: #6b21a8;
+}
+
+/* Detail Paparan Terma */
+.term-detail-container {
+  animation: fadeIn 0.4s ease-out;
+}
+
+.term-detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.term-detail-title h3 {
+  font-size: 1.6rem;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.term-detail-content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.detail-info-block {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  background-color: var(--bg-gray);
+}
+
+.detail-info-block h4 {
+  font-size: 1rem;
+  color: var(--dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.detail-info-block p {
+  font-size: 0.85rem;
+  color: var(--dark-light);
+}
+
+.detail-info-block.responsibility {
+  border-color: var(--pink-tint);
+  background-color: var(--white);
+}
+
+.detail-info-block.responsibility h4 {
+  color: var(--pink);
+}
+
+.detail-info-block.academic-block {
+  grid-column: 1 / -1;
+  background: linear-gradient(135deg, var(--baby-blue-light) 0%, var(--white) 100%);
+  border-color: var(--baby-blue-tint);
+}
+
+.detail-info-block.academic-block h4 {
+  color: #0284c7;
+}
+
+/* Modul 3: Pindahan Risiko & Kastam (Simulasi) */
+.simulator-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+}
+
+@media (max-width: 960px) {
+  .simulator-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.simulator-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.simulator-map-card {
+  position: relative;
+  background-color: #e0f2fe;
+  border: 2px solid var(--baby-blue);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  height: 320px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Grid Peta Transit */
+.shipping-lane {
+  position: relative;
+  height: 120px;
+  margin-top: 30px;
+  border-bottom: 3px dashed #93c5fd;
+}
+
+.location-marker {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.location-marker.origin {
+  left: 20px;
+}
+
+.location-marker.destination {
+  right: 20px;
+}
+
+.location-pin {
+  width: 16px;
+  height: 16px;
+  background-color: var(--pink);
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  margin: 0 auto 6px;
+  box-shadow: 0 0 10px rgba(255, 92, 151, 0.6);
+}
+
+.location-marker.destination .location-pin {
+  background-color: var(--baby-blue-hover);
+  box-shadow: 0 0 10px rgba(88, 191, 233, 0.6);
+}
+
+.location-name {
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--dark);
+}
+
+.location-detail {
+  font-size: 0.65rem;
+  color: var(--dark-light);
+}
+
+/* Animasi Kapal/Lori Kargo */
+.cargo-vehicle {
+  position: absolute;
+  bottom: -15px;
+  left: 30px;
+  width: 48px;
+  height: 48px;
+  z-index: 20;
+  transition: left 3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cargo-vehicle svg {
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+/* Garisan Kos */
+.cost-bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.cost-bar-row {
+  display: flex;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.cost-bar-label {
+  width: 110px;
+  color: var(--dark);
+}
+
+.cost-bar-track {
+  flex: 1;
+  height: 12px;
+  background-color: var(--border-color);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cost-bar-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 6px;
+  transition: width 3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cost-bar-fill.seller {
+  background-color: var(--pink);
+}
+
+.cost-bar-fill.buyer {
+  background-color: var(--baby-blue);
+}
+
+/* Penunjuk Titik Pindahan Risiko */
+.risk-transfer-indicator {
+  position: absolute;
+  top: 10px;
+  transform: translateX(-50%);
+  background-color: #ef4444;
+  color: var(--white);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 10px;
+  z-index: 30;
+  box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+  display: none;
+  pointer-events: none;
+}
+
+.risk-transfer-indicator::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ef4444 transparent transparent transparent;
+}
+
+/* Visual Borang Kastam K1/K2 */
+.customs-visual-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.customs-doc-card {
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  background-color: var(--white);
+  transition: var(--transition);
+}
+
+.customs-doc-card.active {
+  border-color: var(--pink);
+  box-shadow: var(--shadow-md);
+}
+
+.customs-doc-card.inactive {
+  opacity: 0.6;
+}
+
+.customs-doc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1.5px solid var(--border-color);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.customs-doc-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--dark);
+}
+
+.customs-doc-badge {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.customs-doc-badge.export {
+  background-color: var(--pink-light);
+  color: var(--pink);
+}
+
+.customs-doc-badge.import {
+  background-color: var(--baby-blue-light);
+  color: var(--baby-blue-hover);
+}
+
+.customs-doc-body {
+  font-size: 0.75rem;
+}
+
+.customs-doc-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.customs-doc-label {
+  color: var(--dark-light);
+}
+
+.customs-doc-value {
+  font-weight: 600;
+}
+
+.customs-stamp {
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 0.75rem;
+  padding: 4px;
+  border: 2px dashed #e2e8f0;
+  border-radius: 4px;
+  color: #cbd5e1;
+}
+
+.customs-doc-card.active .customs-stamp.seller-responsible {
+  border-color: var(--pink);
+  color: var(--pink);
+  background-color: var(--pink-light);
+}
+
+.customs-doc-card.active .customs-stamp.buyer-responsible {
+  border-color: var(--baby-blue-hover);
+  color: var(--baby-blue-hover);
+  background-color: var(--baby-blue-light);
+}
+
+/* Modul 4: Kalkulator Kajian Kes */
+.case-study-info {
+  background: linear-gradient(135deg, var(--white) 0%, var(--pink-light) 100%);
+  border-left: 5px solid var(--pink);
+  padding: 16px 20px;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin-bottom: 24px;
+}
+
+.case-study-info h4 {
+  font-size: 1.15rem;
+  color: var(--pink-hover);
+  margin-bottom: 8px;
+}
+
+.case-study-info ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 8px;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.case-study-info li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.case-study-info li::before {
+  content: "•";
+  color: var(--pink);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.calculator-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .calculator-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.calculator-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.calc-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.calc-input-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.calc-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.calc-input-prefix {
+  position: absolute;
+  left: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark-light);
+}
+
+.calc-input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.calc-input:focus {
+  outline: none;
+  border-color: var(--pink);
+  box-shadow: 0 0 0 3px var(--pink-light);
+}
+
+.calc-input.modified {
+  border-color: var(--baby-blue-hover);
+  background-color: var(--baby-blue-light);
+}
+
+/* Hasil Sebutharga */
+.quotations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.quotation-result-card {
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  background-color: var(--white);
+  transition: var(--transition);
+}
+
+.quotation-result-card.active {
+  border-color: var(--pink);
+  box-shadow: var(--shadow-md);
+}
+
+.quotation-result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.quotation-result-title {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--dark);
+}
+
+.quotation-result-value {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--pink);
+}
+
+.quotation-result-formula {
+  font-size: 0.75rem;
+  background-color: var(--bg-gray);
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  color: var(--dark-light);
+  margin-bottom: 8px;
+  font-family: monospace;
+}
+
+.quotation-result-explanation {
+  font-size: 0.8rem;
+  color: var(--dark-light);
+}
+
+/* Bahagian Kuiz */
+.quiz-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quiz-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quiz-q-num {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: var(--pink);
+}
+
+.quiz-score-badge {
+  background-color: var(--baby-blue-light);
+  color: var(--baby-blue-hover);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.quiz-progress-dots {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.quiz-progress-dot {
+  flex: 1;
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 3px;
+  transition: var(--transition);
+}
+
+.quiz-progress-dot.active {
+  background-color: var(--pink);
+}
+
+.quiz-progress-dot.correct {
+  background-color: var(--success);
+}
+
+.quiz-progress-dot.wrong {
+  background-color: var(--error);
+}
+
+.quiz-question-box h3 {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.quiz-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.quiz-option-btn {
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.quiz-option-btn:hover {
+  background-color: var(--pink-light);
+  border-color: var(--pink-tint);
+}
+
+.quiz-option-btn.selected {
+  border-color: var(--pink);
+  background-color: var(--pink-light);
+  font-weight: 600;
+}
+
+.quiz-option-btn.correct {
+  border-color: var(--success);
+  background-color: var(--success-light);
+  color: var(--success);
+  font-weight: 700;
+}
+
+.quiz-option-btn.wrong {
+  border-color: var(--error);
+  background-color: var(--error-light);
+  color: var(--error);
+  font-weight: 700;
+}
+
+.quiz-explanation-box {
+  background-color: var(--success-light);
+  border: 1.5px solid #c6f6d5;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.quiz-explanation-box h4 {
+  color: var(--success);
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.quiz-explanation-box p {
+  font-size: 0.85rem;
+  color: var(--dark-light);
+}
+
+.quiz-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Sijil / Hasil Kuiz Akhir */
+.quiz-result-screen {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.certificate-card {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  background: linear-gradient(135deg, var(--white) 0%, var(--baby-blue-light) 50%, var(--pink-light) 100%);
+  border: 8px double var(--pink);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-premium);
+  position: relative;
+}
+
+.certificate-badge {
+  width: 80px;
+  height: 80px;
+  background-color: var(--pink);
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(255, 92, 151, 0.3);
+}
+
+.certificate-card h3 {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--pink-hover);
+  margin-bottom: 8px;
+}
+
+.certificate-card p.cert-title {
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--dark-light);
+  margin-bottom: 20px;
+}
+
+.certificate-card .student-name {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  text-decoration: underline;
+  margin-bottom: 12px;
+}
+
+.certificate-card .cert-score {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--dark-light);
+}
+
+.certificate-card .cert-score span {
+  color: var(--pink);
+  font-size: 1.3rem;
+  font-weight: 800;
+}
+
+/* Modal Kata Laluan & Panel Pensyarah */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background-color: var(--white);
+  border-radius: var(--radius-lg);
+  border: 3px solid var(--pink-tint);
+  width: 100%;
+  max-width: 440px;
+  padding: 32px;
+  box-shadow: var(--shadow-premium);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark-light);
+}
+
+.modal-close-btn:hover {
+  color: var(--pink);
+}
+
+.modal-header h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--pink);
+  text-align: center;
+}
+
+.modal-body {
+  margin-bottom: 20px;
+}
+
+.lecturer-dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Widget Statistik Pensyarah */
+.lecturer-widgets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.widget-card {
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+
+.widget-card h4 {
+  font-size: 0.8rem;
+  color: var(--dark-light);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.widget-value {
+  font-family: var(--font-title);
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--pink);
+}
+
+/* Jadual Kemajuan Pelajar */
+.student-table-container {
+  overflow-x: auto;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.85rem;
+}
+
+.student-table th {
+  background-color: var(--bg-gray);
+  color: var(--dark);
+  font-weight: 700;
+  padding: 10px 14px;
+  border-bottom: 1.5px solid var(--border-color);
+}
+
+.student-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.student-table tr:hover {
+  background-color: var(--baby-blue-light);
+}
+
+.badge-status {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.badge-status.completed {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.badge-status.downloaded {
+  background-color: #e0f2fe;
+  color: #0369a1;
+}
+
+.badge-status.pending {
+  background-color: var(--warning-light);
+  color: var(--warning);
+}
+
+/* Modul Lock/Unlock Controls */
+.lock-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lock-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+}
+
+.lock-row.locked {
+  background-color: var(--warning-light);
+  border-color: #ffe0b2;
+}
+
+.lock-row-info h5 {
+  font-size: 0.9rem;
+}
+
+.lock-row-info p {
+  font-size: 0.75rem;
+  color: var(--dark-light);
+}
+
+/* Togel Lock */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #cbd5e0;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: var(--pink);
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* Footer */
+footer {
+  background-color: var(--white);
+  border-top: 1px solid var(--border-color);
+  padding: 20px 24px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--dark-light);
+  margin-top: auto;
+}
+
+footer p {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Reka Bentuk Nota Khas (Disediakan untuk Cetakan PDF) */
+.academic-handbook-container {
+  display: none; /* Hanya dimuat untuk html2pdf */
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  padding: 40px;
+  background-color: #fff;
+}
+
+.handbook-header {
+  text-align: center;
+  border-bottom: 3px solid #ff5c97;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.handbook-header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2rem;
+  color: #ff5c97;
+}
+
+.handbook-header h2 {
+  font-size: 1.2rem;
+  color: #4a5568;
+}
+
+.handbook-section {
+  margin-bottom: 30px;
+}
+
+.handbook-section h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  color: #2d3748;
+  border-bottom: 1.5px solid #85d2f2;
+  padding-bottom: 6px;
+  margin-bottom: 12px;
+}
+
+.handbook-section p, .handbook-section li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.handbook-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+}
+
+.handbook-table th, .handbook-table td {
+  border: 1px solid #cbd5e0;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.handbook-table th {
+  background-color: #f7fafc;
+  font-weight: 700;
+}
+
+</style>
+  
+  <!-- No external dependencies, using native browser print for PDF -->
+</head>
+<body>
+
+  <!-- Rangka Utama Web -->
+  <div class="app-container">
+    
+    <!-- Header Utama -->
+    <header class="no-print">
+      <div class="header-content">
+        <!-- Logo Sabah Digital Academy & Kolej Komuniti Papar -->
+        <div class="logo-section">
+          <div class="logo-badge" id="app-logo-badge">KKPPS</div>
+          <div class="logo-text">
+            <h1>Incoterms Hub</h1>
+            <p>SLK30203 PENGURUSAN IMPORT & EKSPORT</p>
+          </div>
+        </div>
+        
+        <!-- Status & Tindakan Pelajar -->
+        <div class="header-actions">
+          <div class="progress-container">
+            <div class="progress-text">
+              <span>Kemajuan Anda</span>
+              <span id="overall-progress-text">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+              <div class="progress-bar-fill" id="overall-progress-bar"></div>
+            </div>
+          </div>
+          
+          <button class="btn btn-secondary" id="btn-download-pdf-top">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Nota PDF
+          </button>
+          
+          <button class="btn btn-lecturer" id="btn-lecturer-modal-trigger">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            Panel Pensyarah
+          </button>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Tab Navigasi Menu Pelajar -->
+    <nav class="tabs-container no-print">
+      <div class="tabs-list">
+        <button class="tab-btn active" id="tab-dashboard" data-target="section-dashboard">
+          🏠 Papan Pemuka
+        </button>
+        <button class="tab-btn" id="tab-modul-1" data-target="section-modul-1">
+          📖 Modul 1: Konsep & Sejarah
+        </button>
+        <button class="tab-btn" id="tab-modul-2" data-target="section-modul-2">
+          📦 Modul 2: 11 Terma
+        </button>
+        <button class="tab-btn" id="tab-modul-3" data-target="section-modul-3">
+          🚢 Modul 3: Simulasi Risiko
+        </button>
+        <button class="tab-btn" id="tab-modul-4" data-target="section-modul-4">
+          💰 Modul 4: Kalkulator Kos
+        </button>
+        <button class="tab-btn" id="tab-kuiz" data-target="section-kuiz">
+          🏆 Kuiz Uji Minda
+        </button>
+      </div>
+    </nav>
+    
+    <!-- Kandungan Halaman Utama -->
+    <main class="no-print">
+      
+      <!-- Pop-up Nama Pelajar (Jika belum didaftar) -->
+      <div class="card" id="student-name-card" style="margin-bottom: 24px; border-color: var(--pink);">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <h3 style="color: var(--pink);">Selamat Datang ke Hub Incoterms!</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light);">Sila masukkan nama penuh anda untuk memperibadikan sijil kuiz akhir dan profil pembelajaran anda.</p>
+          <div style="display: flex; gap: 12px; margin-top: 8px; flex-wrap: wrap;">
+            <input type="text" id="input-student-name" placeholder="Contoh: Ahmad Zaki bin Rosli" style="flex: 1; padding: 10px; border-radius: 8px; border: 1.5px solid var(--border-color); font-family: var(--font-body);" value="Pelajar SPL">
+            <button class="btn btn-primary" id="btn-save-student-name">Simpan Nama</button>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ================= SEKSYEN PAPAN PEMUBA ================= -->
+      <section id="section-dashboard" class="module-section active">
+        <div class="dashboard-hero">
+          <span class="hero-tag">Sijil Perkhidmatan Logistik</span>
+          <h2>Topik 4.0: Terma Komersial Antarabangsa (INCOTERMS® 2020)</h2>
+          <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 24px;">
+            <button class="btn btn-primary" id="btn-start-learning">Mula Belajar Sekarang</button>
+            <button class="btn btn-secondary" id="btn-download-handbook">Muat Turun Buku Nota</button>
+            <button class="btn btn-lecturer" id="btn-reset-student-profile" style="color: var(--error); border-color: var(--error); cursor: pointer;">Reset Profil & Kemajuan</button>
+          </div>
+        </div>
+        
+        <div class="modules-grid">
+          <!-- Modul 1 Card -->
+          <div class="module-card" id="card-mod1" data-target="section-modul-1">
+            <div class="module-badge-num">01</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            </div>
+            <h3>Konsep & Sejarah</h3>
+            <p>Fahami 3 pilar utama Incoterms (Tanggungjawab, Risiko, Kos) dan pelajari bagaimana ia berevolusi dari 1936 sehingga edisi 2020.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+          
+          <!-- Modul 2 Card -->
+          <div class="module-card" id="card-mod2" data-target="section-modul-2">
+            <div class="module-badge-num">02</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="21 16 12 21 3 16"></polyline><polyline points="21 12 12 17 3 12"></polyline><polyline points="12 3 2 8 12 13 22 8 12 3"></polyline></svg>
+            </div>
+            <h3>11 Terma Standard</h3>
+            <p>Pelajari kesemua 11 singkatan kod Incoterms dan cara mengkategorikannya mengikut Kumpulan Huruf (E, F, C, D) dan Mod Pengangkutan.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+          
+          <!-- Modul 3 Card -->
+          <div class="module-card" id="card-mod3" data-target="section-modul-3">
+            <div class="module-badge-num">03</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            </div>
+            <h3>Simulasi Risiko & Kos</h3>
+            <p>Uji kefahaman anda secara visual! Saksikan simulasi pergerakan kapal/lori dari Malaysia ke Jepun bagi melihat di mana risiko dan kos berpindah.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+          
+          <!-- Modul 4 Card -->
+          <div class="module-card" id="card-mod4" data-target="section-modul-4">
+            <div class="module-badge-num">04</div>
+            <div class="module-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            </div>
+            <h3>Kalkulator Kajian Kes</h3>
+            <p>Selesaikan kajian kes eksport jam tangan pintar Gadget Trend Sdn Bhd ke Jepun menggunakan borang pengiraan kos sebut harga dinamik.</p>
+            <div class="card-footer-action">Teroka Modul &rarr;</div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 1: KONSEP & SEJARAH ================= -->
+      <section id="section-modul-1" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 1: Konsep & Sejarah Incoterms</h2>
+            <p>Memahami definisi terma perdagangan global dan garis masa perkembangannya.</p>
+          </div>
+        </div>
+        
+        <div class="intro-grid">
+          <!-- Definisi & Tiga Pilar -->
+          <div class="card">
+            <h3>Apakah itu INCOTERMS?</h3>
+            <p style="margin-bottom: 16px; font-size: 0.95rem;" id="txt-incoterms-definition"></p>
+            
+            <h4 style="margin-top: 20px;">Tiga Pilar Tanggungjawab Utama</h4>
+            <div class="pillars-list" id="pillars-list-container">
+              <!-- Dihasilkan secara dinamik oleh app.js -->
+            </div>
+          </div>
+          
+          <!-- Perkara yang TIDAK Dikawal -->
+          <div class="not-controlled-box">
+            <h3>Perkara Penting yang TIDAK Dikawal oleh Incoterms</h3>
+            <ul id="not-controlled-list">
+              <!-- Dihasilkan secara dinamik oleh app.js -->
+            </ul>
+            <div style="margin-top: 20px; background-color: var(--white); padding: 12px; border-radius: var(--radius-md); font-size: 0.75rem; color: var(--pink); font-weight: 700; border: 1px solid var(--pink-tint);">
+              💡 NOTA SYARAT: Incoterms bukanlah keseluruhan kontrak jualan barangan!
+            </div>
+          </div>
+        </div>
+        
+        <!-- Garis Masa Sejarah Interaktif -->
+        <div class="card timeline-slider-wrap">
+          <h3>Garis Masa Sejarah Evolusi Incoterms</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light);">Gunakan slider di bawah untuk meneroka perubahan terma dari asal-usul (1936) sehingga pembaharuan versi 2020.</p>
+          
+          <div class="timeline-slider-container">
+            <input type="range" min="0" max="8" value="8" class="timeline-slider-input" id="slider-timeline-history">
+            <div class="timeline-ticks" id="timeline-ticks-container">
+              <!-- Ticks dihasilkan secara dinamik -->
+            </div>
+            
+            <div class="timeline-event-card" id="timeline-event-display">
+              <h4 id="timeline-display-year">2020</h4>
+              <p id="timeline-display-text"></p>
+            </div>
+          </div>
+          
+          <div class="timeline-navigation">
+            <button class="btn btn-secondary" id="btn-prev-timeline" style="padding: 6px 12px;">&larr; Tahun Sebelumnya</button>
+            <button class="btn btn-secondary" id="btn-next-timeline" style="padding: 6px 12px;">Tahun Seterusnya &rarr;</button>
+          </div>
+        </div>
+        
+        <!-- Perubahan Versi 2020 -->
+        <div class="card">
+          <h3>Pelarasan Kritikal dalam Incoterms® 2020</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light); margin-bottom: 12px;">Berikut merupakan 3 pembaharuan utama yang membezakan Incoterms 2020 berbanding edisi sebelumnya.</p>
+          
+          <div class="updates-2020-grid" id="updates-2020-container">
+            <!-- Dihasilkan secara dinamik oleh app.js -->
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 2: 11 TERMA & KATEGORI ================= -->
+      <section id="section-modul-2" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 2: 11 Terma Standard & Klasifikasi</h2>
+            <p>Pelajari kod 3-huruf standard berserta dua cara pengkategorian rasmi.</p>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3>Klasifikasi 11 Terma Incoterms® 2020</h3>
+          <p style="font-size: 0.9rem; color: var(--dark-light); margin-bottom: 16px;">Gunakan penapis di bawah untuk menyusun terma berdasarkan Mod Pengangkutan atau mengikut Kumpulan Abjad (E, F, C, D).</p>
+          
+          <!-- Togel Penapis -->
+          <div class="filter-tabs">
+            <button class="filter-btn active" id="btn-filter-all" data-filter="all">Semua (11 Terma)</button>
+            <button class="filter-btn" id="btn-filter-multimodal" data-filter="multimodal">Multimodal (Sebarang Mod)</button>
+            <button class="filter-btn" id="btn-filter-sea" data-filter="sea">Mod Laut Sahaja</button>
+            <button class="filter-btn" id="btn-filter-group-e" data-filter="E">Kumpulan E (Keluarkan)</button>
+            <button class="filter-btn" id="btn-filter-group-f" data-filter="F">Kumpulan F (Tambang Belum Bayar)</button>
+            <button class="filter-btn" id="btn-filter-group-c" data-filter="C">Kumpulan C (Tambang Telah Bayar)</button>
+            <button class="filter-btn" id="btn-filter-group-d" data-filter="D">Kumpulan D (Ketibaan)</button>
+          </div>
+          
+          <!-- Grid Kad Singkatan -->
+          <div class="terms-grid" id="terms-grid-container">
+            <!-- Dihasilkan secara dinamik oleh app.js -->
+          </div>
+        </div>
+        
+        <!-- Paparan Huraian Terperinci Terma Terpilih -->
+        <div class="card" id="term-detail-section" style="border-color: var(--pink);">
+          <div class="term-detail-container" id="term-detail-content">
+            <!-- Content will be injected dynamically -->
+            <div style="text-align: center; padding: 20px; color: var(--dark-light);">
+              <p>Klik pada mana-mana kad terma Incoterms di atas untuk melihat butiran lengkap, pembagian tugas, serta nota akademik yang padat.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 3: SIMULASI RISIKO & KOS ================= -->
+      <section id="section-modul-3" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 3: Simulasi Pengoperasian & Pindahan Risiko</h2>
+            <p>Perhatikan pergerakan kargo secara fizikal untuk melihat perpindahan risiko, kos, dan borang kastam.</p>
+          </div>
+        </div>
+        
+        <div class="simulator-layout">
+          <!-- Grid Kiri: Peta dan Animasi Kapal -->
+          <div class="calculator-inputs">
+            
+            <!-- Kad Peta Visual Utama -->
+            <div class="simulator-map-card">
+              <div style="display: flex; justify-content: space-between; align-items: center; z-index: 10;">
+                <span class="hero-tag" id="sim-term-title" style="margin-bottom: 0;">Sila Pilih Terma</span>
+                <span style="font-size: 0.75rem; font-weight: 700; color: var(--dark-light);" id="sim-mode-display">Mod Transit: -</span>
+              </div>
+              
+              <!-- Laluan Penghantaran Kargo -->
+              <div class="shipping-lane">
+                <!-- Penunjuk Lokasi Asal -->
+                <div class="location-marker origin">
+                  <div class="location-pin"></div>
+                  <div class="location-name">Malaysia</div>
+                  <div class="location-detail">Gudang Pengeksport</div>
+                </div>
+                
+                <!-- Kapal/Lori Kargo -->
+                <div class="cargo-vehicle" id="cargo-transit-vehicle">
+                  <!-- SVG Lori (akan diganti atau dimanipulasi melalui JS) -->
+                  <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </div>
+                
+                <!-- Penunjuk Pindahan Risiko -->
+                <div class="risk-transfer-indicator" id="sim-risk-indicator">
+                  Risiko Berpindah!
+                </div>
+                
+                <!-- Penunjuk Lokasi Destinasi -->
+                <div class="location-marker destination">
+                  <div class="location-pin"></div>
+                  <div class="location-name">Jepun (Tokyo)</div>
+                  <div class="location-detail">Gudang Pengimport</div>
+                </div>
+              </div>
+              
+              <!-- Garisan Pembahagian Kos Pengeksport/Pengimport -->
+              <div class="cost-bars-container">
+                <div class="cost-bar-row">
+                  <span class="cost-bar-label">Kos Penjual (Pink)</span>
+                  <div class="cost-bar-track">
+                    <div class="cost-bar-fill seller" id="cost-bar-seller"></div>
+                  </div>
+                </div>
+                
+                <div class="cost-bar-row">
+                  <span class="cost-bar-label">Kos Pembeli (Blue)</span>
+                  <div class="cost-bar-track">
+                    <div class="cost-bar-fill buyer" id="cost-bar-buyer"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Paparan Info Status Simulasi Semasa -->
+            <div class="card">
+              <h3>Maklumat Titik Transit Bagi Terma Terpilih</h3>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px;">
+                <div style="background-color: var(--pink-light); padding: 12px; border-radius: var(--radius-md); border-left: 4px solid var(--pink);">
+                  <strong style="color: var(--pink-hover); font-size: 0.85rem;">🔴 TITIK KOS (COST ALLOCATION)</strong>
+                  <p id="sim-cost-point-text" style="font-size: 0.8rem; margin-top: 4px; color: var(--dark-light);">-</p>
+                </div>
+                
+                <div style="background-color: var(--baby-blue-light); padding: 12px; border-radius: var(--radius-md); border-left: 4px solid var(--baby-blue-hover);">
+                  <strong style="color: #0284c7; font-size: 0.85rem;">🛡️ TITIK RISIKO (RISK TRANSFER)</strong>
+                  <p id="sim-risk-point-text" style="font-size: 0.8rem; margin-top: 4px; color: var(--dark-light);">-</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Bahagian Pelepasan Kastam Dinamik -->
+            <div class="card">
+              <h3>Tanggungjawab Dokumentasi Kastam Malaysia & Jepun</h3>
+              <p style="font-size: 0.8rem; color: var(--dark-light); margin-bottom: 12px;">Pihak yang bertanggungjawab menguruskan pelepasan kastam & cukai (Borang K1/K2) bagi terma ini.</p>
+              
+              <div class="customs-visual-box">
+                <!-- Borang K2 Eksport -->
+                <div class="customs-doc-card active" id="sim-customs-export-card">
+                  <div class="customs-doc-header">
+                    <span class="customs-doc-title">Eksport (Kastam Malaysia)</span>
+                    <span class="customs-doc-badge export">Borang K2</span>
+                  </div>
+                  <div class="customs-doc-body">
+                    <div class="customs-doc-row">
+                      <span class="customs-doc-label">Pihak:</span>
+                      <span class="customs-doc-value" id="sim-customs-export-pihak">-</span>
+                    </div>
+                    <div class="customs-stamp" id="sim-customs-export-stamp">BELUM DISAHKAN</div>
+                  </div>
+                </div>
+                
+                <!-- Borang K1 Import -->
+                <div class="customs-doc-card active" id="sim-customs-import-card">
+                  <div class="customs-doc-header">
+                    <span class="customs-doc-title">Import (Kastam Jepun)</span>
+                    <span class="customs-doc-badge import">Borang K1</span>
+                  </div>
+                  <div class="customs-doc-body">
+                    <div class="customs-doc-row">
+                      <span class="customs-doc-label">Pihak:</span>
+                      <span class="customs-doc-value" id="sim-customs-import-pihak">-</span>
+                    </div>
+                    <div class="customs-stamp" id="sim-customs-import-stamp">BELUM DISAHKAN</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+          
+          <!-- Grid Kanan: Pilihan Terma dan Butang Jalankan -->
+          <div class="simulator-controls">
+            <div class="card" style="height: 100%;">
+              <h3>Pilih Terma Ujian</h3>
+              <p style="font-size: 0.8rem; color: var(--dark-light); margin-bottom: 12px;">Pilih salah satu dari 11 terma di bawah untuk memulakan simulasi.</p>
+              
+              <div style="display: flex; flex-direction: column; gap: 8px;" id="sim-terms-selector-list">
+                <!-- Dihasilkan secara dinamik -->
+              </div>
+              
+              <button class="btn btn-primary" id="btn-run-simulation" style="width: 100%; justify-content: center; margin-top: 16px; padding: 12px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Jalankan Simulasi Transit
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= MODUL 4: KALKULATOR KAJIAN KES ================= -->
+      <section id="section-modul-4" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Modul 4: Pengiraan Kos Kajian Kes (Landed Cost)</h2>
+            <p>Lakukan pengiraan harga sebut harga (Quotation Price) berdasarkan senario realistik eksport jam tangan pintar.</p>
+          </div>
+        </div>
+        
+        <!-- Perincian Kajian Kes Asal -->
+        <div class="case-study-info">
+          <h4>Kajian Kes: Gadget Trend Sdn Bhd (Pulau Pinang &rarr; Tokyo, Jepun)</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 12px;">Syarikat ingin mengeksport <strong>1,000 unit Jam Tangan Pintar</strong> kepada pembeli di Tokyo. Nilai kos operasi yang diisytiharkan adalah seperti berikut. Penuhkan borang di sebelah kiri untuk menguji pengiraan sebutharga.</p>
+          
+          <ul id="case-study-params-list">
+            <!-- Dynamic parameters from data.js -->
+          </ul>
+        </div>
+        
+        <div class="calculator-layout">
+          <!-- Input Form Dinamik -->
+          <div class="card calculator-inputs">
+            <h3>Borang Nilai Kos Eksport</h3>
+            <p style="font-size: 0.75rem; color: var(--dark-light); margin-bottom: 8px;">Ubah nilai di bawah dan lihat perubahan secara langsung pada sebut harga.</p>
+            
+            <!-- Input Kos Seunit -->
+            <div class="calc-input-group">
+              <label for="input-exworks-price">Kos Ex-Works (EXW) Seunit</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-exworks-price" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Lori Tempatan -->
+            <div class="calc-input-group">
+              <label for="input-truck-to-port">Lori ke Pelabuhan Pulau Pinang</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-truck-to-port" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Borang K2 Eksport -->
+            <div class="calc-input-group">
+              <label for="input-export-clearance">Kastam Eksport & Dokumentasi (K2)</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-export-clearance" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Tambang Laut -->
+            <div class="calc-input-group">
+              <label for="input-ocean-freight">Tambang Kapal Laut ke Tokyo</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-ocean-freight" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Insurans Kargo -->
+            <div class="calc-input-group">
+              <label for="input-cargo-insurance">Polisi Insurans Kargo Laut</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-cargo-insurance" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- THC Destinasi -->
+            <div class="calc-input-group">
+              <label for="input-tokyo-thc">Caj Pengendalian Pelabuhan Tokyo (THC)</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-tokyo-thc" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Duti Import Jepun -->
+            <div class="calc-input-group">
+              <label for="input-import-duty">Duti Import & Kastam Jepun</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-import-duty" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <!-- Lori Akhir Gudang Import -->
+            <div class="calc-input-group">
+              <label for="input-final-delivery">Lori Akhir ke Gudang Tokyo</label>
+              <div class="calc-input-wrap">
+                <span class="calc-input-prefix">RM</span>
+                <input type="number" id="input-final-delivery" class="calc-input" min="0">
+              </div>
+            </div>
+            
+            <button class="btn btn-secondary" id="btn-reset-calc-inputs" style="margin-top: 8px; justify-content: center;">
+              Reset Nilai kepada Asal
+            </button>
+          </div>
+          
+          <!-- Hasil Sebut Harga & Penerangan Akademik -->
+          <div class="quotations-container">
+            
+            <!-- Kad Hasil EXW -->
+            <div class="quotation-result-card" id="calc-card-EXW">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">1. EXW (Ex-Works) - Di Gudang Penjual</span>
+                <span class="quotation-result-value" id="calc-val-EXW">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-EXW">Formula: Kuantiti &times; Kos EXW Seunit</div>
+              <p class="quotation-result-explanation">Nota: Pembeli mengambil sendiri barang di kilang. Tanggungjawab penjual selesai setelah melabel & membungkus barangan di gudang Pulau Pinang.</p>
+            </div>
+            
+            <!-- Kad Hasil FOB -->
+            <div class="quotation-result-card" id="calc-card-FOB">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">2. FOB (Free on Board) - Pelabuhan Pulau Pinang</span>
+                <span class="quotation-result-value" id="calc-val-FOB">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-FOB">Formula: EXW + Lori Tempatan + Kastam Eksport</div>
+              <p class="quotation-result-explanation">Nota: Risiko dan kos berpindah daripada penjual kepada pembeli selepas barangan berada dengan selamat di atas kapal di Pelabuhan Pulau Pinang.</p>
+            </div>
+            
+            <!-- Kad Hasil CIF -->
+            <div class="quotation-result-card" id="calc-card-CIF">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">3. CIF (Cost, Insurance & Freight) - Pelabuhan Tokyo</span>
+                <span class="quotation-result-value" id="calc-val-CIF">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-CIF">Formula: FOB + Tambang Kapal Laut + Insurans Kargo</div>
+              <p class="quotation-result-explanation">Nota: Kos pengangkutan laut dan insurans dibayar oleh penjual sehingga ke pelabuhan Tokyo, tetapi risiko kerosakan di lautan tetap ditanggung oleh pembeli selepas dimuat naik ke kapal.</p>
+            </div>
+            
+            <!-- Kad Hasil DDP -->
+            <div class="quotation-result-card" id="calc-card-DDP">
+              <div class="quotation-result-header">
+                <span class="quotation-result-title">4. DDP (Delivered Duty Paid) - Gudang Pembeli (Tokyo)</span>
+                <span class="quotation-result-value" id="calc-val-DDP">RM 0.00</span>
+              </div>
+              <div class="quotation-result-formula" id="calc-formula-DDP">Formula: CIF + Caj Pelabuhan Tokyo + Duti Import Jepun + Lori Penghantaran Akhir</div>
+              <p class="quotation-result-explanation">Nota: Penjual menanggung semua kos pengangkutan domestik/antarabangsa, pelepasan kastam import, serta duti kastam domestik Jepun sehingga tiba di pintu gudang Tokyo.</p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      
+      <!-- ================= SEKSYEN KUIZ UJI MINDA ================= -->
+      <section id="section-kuiz" class="module-section">
+        <div class="section-header">
+          <div class="section-title-wrap">
+            <h2>Kuiz Pengukuhan Minda Incoterms</h2>
+            <p>Uji kefahaman teori, klasifikasi, dan pengiraan sebutharga anda di bawah.</p>
+          </div>
+        </div>
+        
+        <div class="card quiz-container" id="quiz-gameplay-container">
+          <div class="quiz-header">
+            <span class="quiz-q-num" id="quiz-question-number-display">Soalan 1 daripada 10</span>
+            <span class="quiz-score-badge" id="quiz-score-display">Skor: 0 / 100</span>
+          </div>
+          
+          <!-- Indikator kemajuan kuiz -->
+          <div class="quiz-progress-dots" id="quiz-progress-dots-container">
+            <!-- Bulatan kecil dihasilkan dinamik -->
+          </div>
+          
+          <!-- Soalan kuiz -->
+          <div class="quiz-question-box">
+            <h3 id="quiz-question-text">Pemuatan soalan...</h3>
+            
+            <div class="quiz-options-list" id="quiz-options-container">
+              <!-- Butang pilihan jawapan dihasilkan dinamik -->
+            </div>
+          </div>
+          
+          <!-- Maklum balas / Huraian jawapan -->
+          <div class="quiz-explanation-box" id="quiz-explanation-box" style="display: none;">
+            <h4 id="quiz-explanation-title">Maklum Balas Jawapan</h4>
+            <p id="quiz-explanation-text">Penerangan mengenai jawapan yang betul di sini...</p>
+          </div>
+          
+          <!-- Tindakan Kuiz -->
+          <div class="quiz-actions">
+            <button class="btn btn-primary" id="btn-next-question" style="display: none;">Soalan Seterusnya &rarr;</button>
+          </div>
+        </div>
+        
+        <!-- Halaman Sijil Selesai Kuiz -->
+        <div class="card quiz-container" id="quiz-result-container" style="display: none;">
+          <div class="quiz-result-screen">
+            
+            <!-- Rangka Sijil Digital -->
+            <div class="certificate-card" id="digital-certificate-card">
+              <div class="certificate-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+              </div>
+              <h3>SIJIL PENCAPAIAN</h3>
+              <p class="cert-title">Kemahiran Perdagangan Antarabangsa (SLK30203)</p>
+              <p style="font-size: 0.85rem; margin-bottom: 12px; color: var(--dark-light);">Dengan ini disahkan bahawa</p>
+              <p class="student-name" id="cert-student-name">Pelajar Perkhidmatan Logistik</p>
+              <p style="font-size: 0.85rem; margin-bottom: 20px; color: var(--dark-light);">telah menamatkan ujian interaktif dengan keputusan cemerlang:</p>
+              <p class="cert-score">Markah Kuiz: <span id="cert-quiz-score">90 / 100</span></p>
+              <p style="font-size: 0.7rem; color: var(--dark-light); margin-top: 24px; border-top: 1px dashed var(--border-color); padding-top: 12px;">KKPPS @ KOLEJ KOMUNITI PAPAR &bull; PENGURUSAN EKSPORT</p>
+            </div>
+            
+            <h3>Syabas! Anda Telah Berjaya Menamatkan Kuiz</h3>
+            <p style="color: var(--dark-light); font-size: 0.9rem; margin-bottom: 24px;">Anda boleh memuat turun nota lengkap PDF yang memuatkan skema jawapan amali untuk rujukan peperiksaan anda.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+              <button class="btn btn-primary" id="btn-restart-quiz">Cuba Kuiz Semula</button>
+              <button class="btn btn-secondary" id="btn-download-notes-end">Muat Turun Nota PDF</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    
+    <!-- Footer Web -->
+    <footer class="no-print">
+      <p>&copy; 2026 Sabah Digital Academy @ Kolej Komuniti Papar. Dibangunkan untuk Program Sijil Perkhidmatan Logistik (SLK30203 Pengurusan Import dan Eksport). Hak Cipta Terpelihara.</p>
+    </footer>
+    
+  </div>
+  
+  <!-- ================= MODAL LOGIN PENSYARAH ================= -->
+  <div class="modal-overlay no-print" id="modal-lecturer-login">
+    <div class="modal-content">
+      <button class="modal-close-btn" id="btn-close-login-modal">&times;</button>
+      <div class="modal-header">
+        <h3>Akses Panel Pensyarah</h3>
+      </div>
+      <div class="modal-body" style="display: flex; flex-direction: column; gap: 12px; margin-top: 12px;">
+        <p style="font-size: 0.85rem; color: var(--dark-light); text-align: center;">Sila masukkan kata laluan keselamatan pensyarah untuk menukar parameter kajian kes dan memantau kemajuan kelas.</p>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <label for="input-lecturer-password" style="font-size: 0.8rem; font-weight: 700;">Kata Laluan:</label>
+          <input type="password" id="input-lecturer-password" style="padding: 10px; border-radius: 8px; border: 1.5px solid var(--border-color); font-family: var(--font-body);" placeholder="Masukkan kata laluan...">
+          <span id="lecturer-login-error" style="color: var(--error); font-size: 0.75rem; font-weight: 700; display: none;">Kata laluan salah! Sila cuba lagi. (Petunjuk: pensyarah123)</span>
+        </div>
+        <button class="btn btn-primary" id="btn-submit-lecturer-password" style="justify-content: center; margin-top: 8px;">Log Masuk</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- ================= MODAL PANEL PENSYARAH ================= -->
+  <div class="modal-overlay no-print" id="modal-lecturer-panel">
+    <div class="modal-content" style="max-width: 800px; max-height: 90vh; overflow-y: auto;">
+      <button class="modal-close-btn" id="btn-close-panel-modal">&times;</button>
+      <div class="modal-header">
+        <h3 style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+          Panel Kawalan Pensyarah
+        </h3>
+      </div>
+      
+      <div class="modal-body lecturer-dashboard-layout" style="margin-top: 16px;">
+        
+        <!-- Widget Ringkasan Prestasi Kelas -->
+        <div class="lecturer-widgets">
+          <div class="widget-card">
+            <h4>Jumlah Pelajar</h4>
+            <div class="widget-value" id="widget-total-students">6 orang</div>
+          </div>
+          <div class="widget-card">
+            <h4>Purata Progress</h4>
+            <div class="widget-value" id="widget-avg-progress">75%</div>
+          </div>
+          <div class="widget-card">
+            <h4>Purata Skor Kuiz</h4>
+            <div class="widget-value" id="widget-avg-quiz">72%</div>
+          </div>
+        </div>
+        
+        <!-- Pindah Nilai Kajian Kes Secara Live -->
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="color: var(--pink); margin-bottom: 8px;">Ubah Parameter Kajian Kes (Live)</h4>
+          <p style="font-size: 0.75rem; color: var(--dark-light); margin-bottom: 12px;">Pensyarah boleh mengubah nilai asal bagi jam tangan pintar. Nilai baharu ini akan diisi secara automatik dalam borang pelajar untuk menguji kecekapan mereka mengira jawapan tersuai.</p>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;">
+            <div class="calc-input-group">
+              <label for="lect-exworks-price" style="font-size: 0.75rem;">Kos EXW Seunit</label>
+              <input type="number" id="lect-exworks-price" style="padding: 6px; border-radius: 6px; border: 1.5px solid var(--border-color);" value="100">
+            </div>
+            <div class="calc-input-group">
+              <label for="lect-ocean-freight" style="font-size: 0.75rem;">Tambang Kapal Laut</label>
+              <input type="number" id="lect-ocean-freight" style="padding: 6px; border-radius: 6px; border: 1.5px solid var(--border-color);" value="2500">
+            </div>
+            <div class="calc-input-group">
+              <label for="lect-import-duty" style="font-size: 0.75rem;">Duti Import Kastam</label>
+              <input type="number" id="lect-import-duty" style="padding: 6px; border-radius: 6px; border: 1.5px solid var(--border-color);" value="3000">
+            </div>
+            <div class="calc-input-group" style="justify-content: flex-end;">
+              <button class="btn btn-primary" id="btn-update-lect-params" style="padding: 8px; font-size: 0.8rem; width: 100%; justify-content: center;">
+                Kemas Kini Kelas
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Status Kemajuan Pelajar Aktif -->
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="margin-bottom: 8px;">Senarai Markah & Kemajuan Pelajar</h4>
+          <div class="student-table-container">
+            <table class="student-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Nama Pelajar</th>
+                  <th>Kemajuan</th>
+                  <th>Skor Kuiz</th>
+                  <th>Nota PDF</th>
+                  <th>Aktif Terakhir</th>
+                </tr>
+              </thead>
+              <tbody id="student-table-body">
+                <!-- Injected dynamically by app.js -->
+              </tbody>
+            </table>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-top: 12px; flex-wrap: wrap; gap: 8px;">
+            <button class="btn btn-secondary" id="btn-export-students-csv" style="padding: 6px 12px; font-size: 0.8rem;">
+              Eksport Laporan (CSV)
+            </button>
+            <button class="btn btn-lecturer" id="btn-reset-class-data" style="padding: 6px 12px; font-size: 0.8rem; color: var(--error); border-color: var(--error);">
+              Sifar Semua Kemajuan Kelas
+            </button>
+          </div>
+        </div>
+        
+        <!-- Sekat / Buka Kunci Modul Kelas -->
+        <div class="card" style="margin-bottom: 0;">
+          <h4 style="margin-bottom: 8px;">Kawalan Pintu Modul (Kunci Kelas)</h4>
+          <p style="font-size: 0.75rem; color: var(--dark-light); margin-bottom: 12px;">Buka kunci atau sekat akses pelajar bagi fasa pembelajaran tertentu.</p>
+          <div class="lock-controls">
+            <!-- Lock Modul 3 -->
+            <div class="lock-row" id="lock-row-modul-3">
+              <div class="lock-row-info">
+                <h5>Modul 3: Simulasi Risiko & Kastam</h5>
+                <p>Kunci akses simulasi fizikal pergerakan kargo.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-lock-mod3" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <!-- Lock Modul 4 -->
+            <div class="lock-row" id="lock-row-modul-4">
+              <div class="lock-row-info">
+                <h5>Modul 4: Pengiraan Kos Kajian Kes</h5>
+                <p>Kunci akses kalkulator dan tugasan amali.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-lock-mod4" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            
+            <!-- Lock Kuiz -->
+            <div class="lock-row" id="lock-row-kuiz">
+              <div class="lock-row-info">
+                <h5>Kuiz Uji Minda Pengokohan</h5>
+                <p>Kunci ujian aneka pilihan dari diakses oleh pelajar awal.</p>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="toggle-lock-kuiz" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= BUKU NOTA AKADEMIK DIJANA BAGI CETAKAN PDF (HIDDEN) ================= -->
+  <div id="academic-handbook-printable" class="academic-handbook-container">
+    <div class="handbook-header">
+      <h1 id="pdf-handbook-title">BUKU NOTA AKADEMIK INCOTERMS® 2020</h1>
+      <h2>Kolej Komuniti Papar &bull; KKPPS</h2>
+      <p style="margin-top: 8px; font-weight: 700;">KOD KURSUS: SLK30203 PENGURUSAN IMPORT DAN EKSPORT</p>
+      <p style="font-size: 0.8rem; color: #718096; margin-top: 4px;">Diperibadikan untuk: <span id="pdf-student-name" style="text-decoration: underline;">Pelajar SPL</span></p>
+    </div>
+    
+    <!-- Bahagian 1 -->
+    <div class="handbook-section">
+      <h3>1.0 Menerangkan Konsep INCOTERMS</h3>
+      <p><strong>1.1 Definisi:</strong> INCOTERMS (International Commercial Terms) ialah satu set kod tiga huruf yang diiktiraf di peringkat global, diterbitkan oleh Dewan Perniagaan Antarabangsa (International Chamber of Commerce - ICC). Fungsi utamanya adalah menentukan pembahagian tiga perkara penting dalam kontrak jualan antarabangsa:</p>
+      <ul>
+        <li><strong>Tanggungjawab (Tasks):</strong> Siapa yang menguruskan pengangkutan, insurans, dokumen, dan pelepasan kastam eksport-import.</li>
+        <li><strong>Risiko (Risk):</strong> Di mana dan bila titik pindahan risiko (point of risk transfer) berlaku daripada penjual kepada pembeli.</li>
+        <li><strong>Kos (Costs):</strong> Siapa yang membayar tambang pengangkutan, insurans, duti cukai, dan caj pelabuhan.</li>
+      </ul>
+      <p><strong>Perkara penting yang TIDAK dikawal oleh Incoterms:</strong> Incoterms bukanlah keseluruhan kontrak jualan, tidak menguruskan hak milik sah barangan (title of property), harga barang, terma pembayaran, atau remedi undang-undang sekiranya berlaku kemungkiran kontrak.</p>
+    </div>
+    
+    <!-- Bahagian 2 -->
+    <div class="handbook-section">
+      <h3>2.0 Sejarah & Evolusi 2020</h3>
+      <p>Ditubuhkan pada tahun 1936 oleh ICC bagi mengatasi perbezaan undang-undang domestik. Mengalami evolusi pada tahun 1953, 1967, 1976, 1980, 1990, 2000, dan 2010. Pindaan terkini <strong>Incoterms® 2020</strong> memperkenalkan pelarasan berikut:</p>
+      <ol>
+        <li>Menggantikan terma <strong>DAT</strong> (Delivered at Terminal) kepada <strong>DPU</strong> (Delivered at Place Unloaded) untuk membolehkan pemunggahan di mana-mana tempat.</li>
+        <li>Syarat insurans minimum terma <strong>CIP</strong> ditingkatkan kepada perlindungan *Institute Cargo Clauses (A) (All Risks)*, manakala <strong>CIF</strong> kekal pada *Clauses (C)* (Perlindungan minimum).</li>
+        <li>Membenarkan penggunaan pengangkutan sendiri (kenderaan syarikat) di bawah terma FCA, DAP, DPU, dan DDP tanpa penglibatan syarikat logistik pihak ketiga.</li>
+      </ol>
+    </div>
+    
+    <!-- Bahagian 3 -->
+    <div class="handbook-section">
+      <h3>3.0 Senarai 11 Terma Standard & Kategori</h3>
+      <table class="handbook-table">
+        <thead>
+          <tr>
+            <th>Kod</th>
+            <th>Terma Asal</th>
+            <th>Terma Melayu</th>
+            <th>Mod Pengangkutan</th>
+            <th>Kumpulan</th>
+          </tr>
+        </thead>
+        <tbody id="pdf-terms-table-body">
+          <!-- Dipenuhi secara dinamik -->
+        </tbody>
+      </table>
+      
+      <p style="margin-top: 12px;"><strong>3.1 Kategori A (Berdasarkan Mod Pengangkutan):</strong></p>
+      <ul>
+        <li><strong>Multimodal (7 Terma):</strong> EXW, FCA, CPT, CIP, DAP, DPU, DDP (Sesuai untuk sebarang mod pengangkutan: darat, udara, laut, rel).</li>
+        <li><strong>Laut dan Laluan Air Sahaja (4 Terma):</strong> FAS, FOB, CFR, CIF (Hanya digunakan apabila tempat penyerahan/destinasi adalah pelabuhan ke pelabuhan).</li>
+      </ul>
+      
+      <p><strong>3.2 Kategori B (Berdasarkan Kumpulan Abjad):</strong></p>
+      <ul>
+        <li><strong>Kumpulan E (Departure) [EXW]:</strong> Penjual meletakkan tanggungjawab kos & risiko maksimum kepada pembeli. Penjual hanya perlu menyediakan barang di kilang.</li>
+        <li><strong>Kumpulan F (Main Carriage Unpaid) [FCA, FAS, FOB]:</strong> Penjual menyerahkan barangan kepada pengangkut lantikan pembeli di pelabuhan pelepasan. Pembeli membayar tambang laut utama.</li>
+        <li><strong>Kumpulan C (Main Carriage Paid) [CFR, CIF, CPT, CIP]:</strong> Penjual membayar tambang laut utama ke destinasi, tetapi risiko berpindah di negara asal (Two-Point Transfer).</li>
+        <li><strong>Kumpulan D (Arrival) [DAP, DPU, DDP]:</strong> Penjual menanggung kos & risiko penuh membawa barang sehingga ke destinasi negara import.</li>
+      </ul>
+    </div>
+    
+    <!-- Bahagian 4 -->
+    <div class="handbook-section" style="page-break-before: always;">
+      <h3>4.0 Pengoperasian Kastam Malaysia (Borang K1/K2)</h3>
+      <p>Bagi transaksi eksport & import di Malaysia, tanggungjawab pelepasan dokumen kastam adalah tetap:</p>
+      <ul>
+        <li><strong>Deklarasi Eksport (Borang K2):</strong> Tanggungjawab <strong>Penjual</strong> untuk memproses & membayar duti kastam eksport. <em>Pengecualian:</em> Terma <strong>EXW</strong>, di mana pembeli asing terpaksa menguruskan K2 di Malaysia.</li>
+        <li><strong>Deklarasi Import (Borang K1):</strong> Tanggungjawab <strong>Pembeli</strong> untuk memproses & membayar duti import/SST. <em>Pengecualian:</em> Terma <strong>DDP</strong>, di mana penjual asing bertanggungjawab sepenuhnya menguruskan K1 dan membayar cukai domestik Malaysia.</li>
+      </ul>
+    </div>
+    
+    <!-- Bahagian 5 -->
+    <div class="handbook-section">
+      <h3>5.0 Kajian Kes & Skema Jawapan Amali</h3>
+      <p><strong>Senario Eksport Gadget Trend Sdn Bhd (Pulau Pinang ke Tokyo, Jepun):</strong></p>
+      <p>Syarikat mengeksport 1,000 unit jam tangan pintar. Parameter nilai operasi yang diisytiharkan adalah seperti berikut:</p>
+      <table class="handbook-table" style="max-width: 500px;">
+        <tbody id="pdf-case-study-params-body">
+          <!-- Dynamic params will be loaded -->
+        </tbody>
+      </table>
+      
+      <p style="margin-top: 16px;"><strong>5.1 Jalan Pengiraan & Jawapan Sebut Harga:</strong></p>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-EXW-box">
+        <!-- Will be updated dynamically -->
+      </div>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-FOB-box">
+        <!-- Will be updated dynamically -->
+      </div>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-CIF-box">
+        <!-- Will be updated dynamically -->
+      </div>
+      <div style="background-color: #f7fafc; border-left: 4px solid #ff5c97; padding: 12px; margin-bottom: 12px;" id="pdf-calc-DDP-box">
+        <!-- Will be updated dynamically -->
+      </div>
+    </div>
+  </div>
+
+<script>
+// js/data.js - Pangkalan Data Silibus Incoterms SLK30203
+
+// Struktur utama data
+const IncotermsData = {
+  // Maklumat Pengenalan & 3 Pilar
+  concept: {
+    title: "Konsep Incoterms",
+    definition: "INCOTERMS (International Commercial Terms) ialah satu set kod tiga huruf yang diiktiraf di peringkat global, diterbitkan oleh Dewan Perniagaan Antarabangsa (ICC). Ia menetapkan peraturan standard untuk menentukan tanggungjawab, kos, dan risiko bagi pembeli (pengimport) dan penjual (pengeksport) dalam transaksi perdagangan antarabangsa.",
+    pillars: [
+      {
+        id: "tasks",
+        title: "Tanggungjawab (Tasks)",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>`,
+        description: "Menentukan siapa yang menguruskan penyediaan dokumen eksport-import, kontrak pengangkutan utama, perlindungan insurans, dan kelulusan pelepasan kastam di kedua-dua belah sempadan."
+      },
+      {
+        id: "risk",
+        title: "Risiko (Risk)",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>`,
+        description: "Menentukan di mana dan bila titik pindahan risiko (point of risk transfer) berlaku daripada penjual kepada pembeli sekiranya berlaku kerosakan, kecurian, atau kehilangan kargo semasa transit."
+      },
+      {
+        id: "costs",
+        title: "Kos (Costs)",
+        icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>`,
+        description: "Menentukan pihak mana yang wajib membayar tambang pengangkutan utama, duti kastam eksport/import, insurans, caj pengendalian di pelabuhan (THC), dan kos penghantaran tempatan."
+      }
+    ],
+    notControlled: [
+      "Incoterms bukanlah keseluruhan kontrak jualan.",
+      "Incoterms tidak menentukan masa atau kaedah pemindahan hak milik sah (transfer of property/title) ke atas barangan.",
+      "Incoterms tidak mengawal harga barangan, syarat pembayaran, atau remedi undang-undang sekiranya berlaku kemungkiran kontrak."
+    ]
+  },
+
+  // Perubahan Incoterms 2020
+  updates2020: [
+    {
+      title: "DAT kepada DPU",
+      desc: "Menggantikan terma DAT (Delivered at Terminal) kepada DPU (Delivered at Place Unloaded) untuk memberikan lebih fleksibiliti di mana tempat pemunggahan barangan boleh dibuat di mana-mana tempat yang dinamakan, tidak terhad di terminal sahaja."
+    },
+    {
+      title: "Tahap Insurans CIP vs CIF",
+      desc: "Meningkatkan perlindungan insurans minimum untuk terma CIP di bawah Institute Cargo Clauses (A) (perlindungan penuh/all risks), manakala CIF kekal menggunakan perlindungan minimum di bawah Institute Cargo Clauses (C)."
+    },
+    {
+      title: "Pengangkutan Sendiri",
+      desc: "Membenarkan penggunaan pengangkutan sendiri (kenderaan sendiri) oleh pembeli atau penjual di bawah terma FCA, DAP, DPU, dan DDP tanpa perlu mengikat kontrak dengan syarikat pengangkut pihak ketiga."
+    }
+  ],
+
+  // Sejarah Garis Masa
+  timeline: [
+    { year: "1936", event: "ICC menerbitkan versi pertama Incoterms dengan 6 peraturan utama bagi mengatasi percanggahan undang-undang perdagangan domestik." },
+    { year: "1953", event: "Kemas kini pertama bagi menangani pengangkutan kereta api dan jalan raya." },
+    { year: "1967", event: "Pengenalan terma bagi menangani penghantaran udara dan pelabuhan serantau." },
+    { year: "1976", event: "Perubahan bagi mengintegrasikan penggunaan dokumen elektronik ringkas." },
+    { year: "1980", event: "Diperkenalkan terma FRC (kini FCA) disebabkan oleh perkembangan kontena rantaian logistik." },
+    { year: "1990", event: "Penyusunan semula struktur terma untuk menyokong pertukaran data elektronik (EDI) sepenuhnya." },
+    { year: "2000", event: "Pembersihan format pembahagian tanggungjawab kastam eksport/import bagi memudahkan pengguna." },
+    { year: "2010", event: "Penggabungan beberapa terma (seperti DAF, DES, DEQ, DDU) kepada terma DAP dan DAT, mengurangkan jumlah dari 13 kepada 11 terma." },
+    { year: "2020", event: "Pelancaran versi terbaharu dengan fleksibiliti DPU, perbezaan tahap insurans CIP/CIF, serta peraturan keselamatan kargo pengangkutan." }
+  ],
+
+  // Perincian 11 Terma Incoterms 2020
+  terms: {
+    EXW: {
+      code: "EXW",
+      name: "Ex Works",
+      translation: "Di Kilang / Premis Penjual",
+      mode: "multimodal",
+      group: "E",
+      riskPoint: "Premis penjual (kilang/gudang) sebaik sahaja barangan disediakan untuk diambil oleh pembeli.",
+      costPoint: "Premis penjual. Semua kos selepas itu (lori, tambang kapal, kastam, insurans) ditanggung oleh pembeli.",
+      customsExport: "Pembeli (Pengimport) - Ini adalah satu-satunya terma di mana pembeli menguruskan pelepasan eksport.",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menyediakan barangan di kilang/gudang sendiri, melabel barangan, dan membungkus dengan selamat untuk eksport.",
+      buyerResponsibility: "Mengurus dan membayar pengangkutan ke pelabuhan asal, pelepasan kastam eksport, tambang pengangkutan utama, insurans kargo, kastam import, dan penghantaran akhir.",
+      academicNote: "Terma ini meletakkan tanggungjawab minimum kepada penjual dan tanggungjawab maksimum kepada pembeli. Sangat sukar bagi pembeli luar negara menguruskan Borang K2 eksport di Malaysia secara praktikal."
+    },
+    FCA: {
+      code: "FCA",
+      name: "Free Carrier",
+      translation: "Percuma kepada Pengangkut",
+      mode: "multimodal",
+      group: "F",
+      riskPoint: "Apabila barangan diserahkan kepada syarikat pengangkutan yang dilantik oleh pembeli di tempat yang dinamakan.",
+      costPoint: "Tempat penyerahan yang dinamakan di negara asal (contoh: terminal lapangan terbang atau depoh lori).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menguruskan pelepasan kastam eksport (Borang K2) dan memuatkan barangan ke dalam kenderaan pengangkut pembeli sekiranya berlaku di premis penjual.",
+      buyerResponsibility: "Menguruskan kontrak pengangkutan utama dari tempat penyerahan ke destinasi, membayar insurans (pilihan), menguruskan kastam import dan penghantaran akhir.",
+      academicNote: "Sangat popular untuk kargo kontena (FCL/LCL) kerana ia fleksibel dan sesuai untuk pengangkutan jalan raya, kereta api atau udara sebelum pengangkutan utama."
+    },
+    CPT: {
+      code: "CPT",
+      name: "Carriage Paid To",
+      translation: "Tambang Dibayar Kepada",
+      mode: "multimodal",
+      group: "C",
+      riskPoint: "Berlaku di negara asal apabila barangan diserahkan kepada syarikat pengangkut pertama (pindahan dua-titik).",
+      costPoint: "Destinasi yang dinamakan di negara import (tambang dibayar oleh penjual sehingga ke destinasi tersebut).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menguruskan pelepasan kastam eksport, membayar tambang lori tempatan dan tambang pengangkutan utama sehingga destinasi yang dipersetujui.",
+      buyerResponsibility: "Menanggung risiko kerosakan semasa kargo dalam transit utama, membayar insurans kargo (pilihan), pelepasan kastam import, dan pengangkutan dari destinasi ke gudang sendiri.",
+      academicNote: "Ingat! Risiko berpindah di negara asal (apabila kargo diserahkan kepada pengangkut pertama), tetapi kos dibayar oleh penjual sehingga ke destinasi import. Ini dinamakan 'Pindahan Dua Titik'."
+    },
+    CIP: {
+      code: "CIP",
+      name: "Carriage and Insurance Paid To",
+      translation: "Tambang dan Insurans Dibayar Kepada",
+      mode: "multimodal",
+      group: "C",
+      riskPoint: "Berlaku di negara asal apabila barangan diserahkan kepada pengangkut pertama.",
+      costPoint: "Destinasi yang dinamakan di negara import (tambang dan insurans dibayar oleh penjual).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menguruskan kastam eksport, membayar pengangkutan utama, dan wajib membeli polisi insurans kargo di bawah perlindungan Institute Cargo Clauses (A) (All Risks) untuk pembeli.",
+      buyerResponsibility: "Menguruskan pelepasan kastam import, membayar cukai import, dan memunggah barangan di destinasi akhir (kecuali dipersetujui sebaliknya).",
+      academicNote: "Di bawah Incoterms 2020, CIP mewajibkan penjual membeli perlindungan insurans maksimum (A), berbeza dengan CIF yang hanya memerlukan perlindungan minimum (C)."
+    },
+    DAP: {
+      code: "DAP",
+      name: "Delivered at Place",
+      translation: "Diserah di Tempat",
+      mode: "multimodal",
+      group: "D",
+      riskPoint: "Di atas kenderaan pengangkutan yang sedia untuk dipunggah di lokasi destinasi yang dinamakan di negara pembeli.",
+      costPoint: "Destinasi yang dinamakan (kos pemunggahan di destinasi ditanggung oleh pembeli).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menanggung kos & risiko membawa barang dari gudang asal hingga ke destinasi di negara import (termasuk tambang utama & lori tempatan import).",
+      buyerResponsibility: "Menguruskan pelepasan kastam import (Borang K1), membayar duti/cukai import, dan menanggung kos memunggah barang daripada kenderaan di destinasi.",
+      academicNote: "Penjual tidak bertanggungjawab memunggah barang (unloading). Risiko kerosakan semasa pemunggahan di gudang pembeli adalah di bawah tanggungjawab pembeli sendiri."
+    },
+    DPU: {
+      code: "DPU",
+      name: "Delivered at Place Unloaded",
+      translation: "Diserah di Tempat Tanpa Punggah",
+      mode: "multimodal",
+      group: "D",
+      riskPoint: "Di lokasi destinasi yang dinamakan, sebaik sahaja barangan telah dipunggah (unloaded) dari kenderaan pengangkutan.",
+      costPoint: "Destinasi yang dinamakan (termasuk kos pemunggahan oleh penjual).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menanggung kos, pengangkutan, insurans, dan risiko sepenuhnya termasuk kos memunggah barang di tempat destinasi yang dipersetujui.",
+      buyerResponsibility: "Menguruskan kelulusan kastam import, membayar duti kastam, SST, dan urusan dokumentasi import berkaitan.",
+      academicNote: "Ini adalah satu-satunya terma Incoterms yang mewajibkan penjual memunggah barangan di destinasi sebelum pemindahan risiko berlaku."
+    },
+    DDP: {
+      code: "DDP",
+      name: "Delivered Duty Paid",
+      translation: "Diserah Cukai Dibayar",
+      mode: "multimodal",
+      group: "D",
+      riskPoint: "Premis/Gudang pembeli, dalam keadaan sedia untuk dipunggah di lokasi akhir.",
+      costPoint: "Premis/Gudang pembeli. Semua kos (tambang, cukai import, pelepasan kastam) dibayar oleh penjual.",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Penjual (Pengeksport) - Ini adalah satu-satunya terma di mana penjual menguruskan pelepasan import asing.",
+      sellerResponsibility: "Menguruskan pelepasan eksport & import (K1 & K2), membayar duti import, cukai jualan (SST), tambang pengangkutan tempatan & antarabangsa hingga pintu gudang pembeli.",
+      buyerResponsibility: "Memunggah barangan dari trak penghantaran akhir di gudang sendiri.",
+      academicNote: "Terma ini meletakkan tanggungjawab maksimum kepada penjual dan minimum kepada pembeli. Penjual menanggung kos mendarat (landed cost) yang paling tinggi."
+    },
+    FAS: {
+      code: "FAS",
+      name: "Free Alongside Ship",
+      translation: "Percuma di Sisi Kapal",
+      mode: "sea",
+      group: "F",
+      riskPoint: "Sebaik sahaja barangan diletakkan di sisi kapal (di atas jeti/dermaga) di pelabuhan pelepasan yang dinamakan.",
+      costPoint: "Sisi kapal di pelabuhan pelepasan (kos memuatkan kargo ke dalam kapal ditanggung oleh pembeli).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menghantar barang ke pelabuhan pelepasan, menguruskan pelepasan eksport, dan meletakkan barang bersebelahan dengan kapal pembeli di atas jeti.",
+      buyerResponsibility: "Membayar kos pemuatan kargo ke atas kapal (stevedoring), tambang kapal laut, insurans, pelepasan kastam import, THC destinasi, dan lori domestik.",
+      academicNote: "Digunakan khas untuk kargo pukal (bulk cargo) seperti arang batu, minyak, kayu balak, atau kargo berat (heavy lifts) yang diangkat terus dari jeti pelabuhan."
+    },
+    FOB: {
+      code: "FOB",
+      name: "Free on Board",
+      translation: "Percuma di Atas Kapal",
+      mode: "sea",
+      group: "F",
+      riskPoint: "Sebaik sahaja barangan dimuatkan sepenuhnya di atas kapal (on board) di pelabuhan pelepasan yang dinamakan.",
+      costPoint: "Di atas kapal di pelabuhan pelepasan. Tambang kapal utama mula dibayar oleh pembeli.",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menguruskan kastam eksport, lori tempatan, dan membiayai kos pemuatan barang ke atas kapal di pelabuhan pelepasan.",
+      buyerResponsibility: "Membayar tambang pengangkutan kapal laut antarabangsa, insurans kargo laut, pelepasan kastam import di negara destinasi, caj THC destinasi, dan pengangkutan darat import.",
+      academicNote: "Sangat popular dalam perdagangan laut tradisional. Terma ini tidak digalakkan untuk kargo kontena (sepatutnya gunakan FCA) kerana penjual tidak boleh mengawal risiko setelah kontena memasuki pintu terminal kontena sebelum dimuatkan ke kapal."
+    },
+    CFR: {
+      code: "CFR",
+      name: "Cost and Freight",
+      translation: "Kos dan Tambang",
+      mode: "sea",
+      group: "C",
+      riskPoint: "Apabila barangan berada di atas kapal di pelabuhan pelepasan negara asal (pindahan dua-titik).",
+      costPoint: "Pelabuhan destinasi yang dinamakan di negara import (tambang laut dibayar oleh penjual).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menguruskan kastam eksport, membayar kos pemuatan ke kapal, dan membiayai tambang kapal laut sehingga ke pelabuhan destinasi.",
+      buyerResponsibility: "Menanggung risiko kerosakan sebaik sahaja barang berada di kapal, menguruskan insurans kargo (pilihan), pelepasan kastam import, THC destinasi, dan lori ke gudang.",
+      academicNote: "Penjual membayar tambang laut (Freight) tetapi risiko dalam perjalanan di lautan adalah tanggungjawab pembeli. Jika kapal karam, pembeli yang perlu menanggung kerugian."
+    },
+    CIF: {
+      code: "CIF",
+      name: "Cost, Insurance and Freight",
+      translation: "Kos, Insurans dan Tambang",
+      mode: "sea",
+      group: "C",
+      riskPoint: "Apabila barangan berada di atas kapal di pelabuhan pelepasan (pindahan dua-titik).",
+      costPoint: "Pelabuhan destinasi yang dinamakan di negara import (tambang dan insurans dibayar oleh penjual).",
+      customsExport: "Penjual (Pengeksport)",
+      customsImport: "Pembeli (Pengimport)",
+      sellerResponsibility: "Menguruskan kastam eksport, membiayai tambang kapal laut ke destinasi, dan membeli perlindungan insurans kargo minimum (Institute Cargo Clauses C) untuk pembeli.",
+      buyerResponsibility: "Menguruskan kastam import, membayar cukai import, membayar caj pengendalian pelabuhan Tokyo (THC), dan lori penghantaran ke gudang sendiri.",
+      academicNote: "Salah satu terma yang paling kerap digunakan dalam perdagangan komoditi laut. Penjual wajib membelikan insurans bagi pihak pembeli (benefisiari insurans adalah pembeli)."
+    }
+  },
+
+  // Perbezaan Pelepasan Kastam
+  customsSummary: {
+    export: {
+      form: "Borang K2 (Pengisytiharan Barang-barang yang Dieksport)",
+      standard: "Diuruskan oleh Penjual bagi 10 terma.",
+      exception: "EXW (Diuruskan oleh Pembeli) - Pengecualian tunggal."
+    },
+    import: {
+      form: "Borang K1 (Pengisytiharan Barang-barang yang Diimport)",
+      standard: "Diuruskan oleh Pembeli bagi 10 terma.",
+      exception: "DDP (Diuruskan oleh Penjual) - Pengecualian tunggal."
+    }
+  },
+
+  // Parameter Kajian Kes Awal
+  defaultCaseStudy: {
+    productName: "Jam Tangan Pintar (Smart Watch)",
+    quantity: 1000,
+    exWorksPrice: 100, // RM seunit
+    truckToPenang: 500, // RM
+    exportClearance: 300, // RM (Borang K2 & Dokumentasi)
+    oceanFreight: 2500, // RM (Pulau Pinang ke Tokyo)
+    insurance: 400, // RM
+    tokyoTHC: 800, // RM (Terminal Handling Charges)
+    japanImportDuty: 3000, // RM
+    finalDelivery: 1000 // RM (Lori dari pelabuhan Tokyo ke Gudang Pembeli)
+  },
+
+  // Soalan-soalan Kuiz
+  quizQuestions: [
+    {
+      id: 1,
+      question: "Apakah fungsi utama peraturan INCOTERMS dalam perdagangan antarabangsa?",
+      options: [
+        "Menetapkan harga jualan barang dan kaedah pembayaran.",
+        "Menentukan pemindahan hak milik sah (property title) barang.",
+        "Membahagikan tanggungjawab, kos, dan risiko antara penjual dan pembeli.",
+        "Menyediakan khidmat guaman kontrak jika berlaku penipuan."
+      ],
+      correctAnswer: 2,
+      explanation: "Fungsi utama Incoterms adalah menetapkan pembahagian tiga perkara utama: Tanggungjawab (Tasks), Risiko (Risk), dan Kos (Costs)."
+    },
+    {
+      id: 2,
+      question: "Di bawah Incoterms® 2020, terma manakah yang meletakkan TANGGUNGJAWAB MINIMUM kepada Penjual?",
+      options: [
+        "DDP (Delivered Duty Paid)",
+        "EXW (Ex Works)",
+        "FOB (Free on Board)",
+        "FCA (Free Carrier)"
+      ],
+      correctAnswer: 1,
+      explanation: "Dalam EXW, penjual hanya perlu menyediakan barangan di premis sendiri (kilang/gudang). Pembeli asing menanggung semua kos, risiko, pelepasan kastam eksport-import, dan pengangkutan."
+    },
+    {
+      id: 3,
+      question: "Apakah terma tunggal di bawah Incoterms 2020 yang mewajibkan PENJUAL menguruskan pelepasan kastam import (Borang K1) di negara pembeli?",
+      options: [
+        "DAP",
+        "DPU",
+        "DDP",
+        "CIF"
+      ],
+      correctAnswer: 2,
+      explanation: "DDP (Delivered Duty Paid) mewajibkan penjual menguruskan kedua-dua pelepasan kastam: eksport (negara penjual) dan import (negara pembeli) termasuk membayar cukai domestik/duti import."
+    },
+    {
+      id: 4,
+      question: "Terma manakah yang hanya sesuai digunakan untuk pengangkutan LAUT dan laluan air dalam negeri sahaja?",
+      options: [
+        "EXW, FCA, CPT, CIP",
+        "FAS, FOB, CFR, CIF",
+        "DAP, DPU, DDP",
+        "FCA, CPT, DAP, DDP"
+      ],
+      correctAnswer: 1,
+      explanation: "Terma FAS, FOB, CFR, dan CIF adalah dikhaskan untuk pengangkutan laut (port-to-port). Terma-terma lain sesuai untuk sebarang mod pengangkutan (multimodal)."
+    },
+    {
+      id: 5,
+      question: "Bagi terma Kumpulan C (CFR, CIF, CPT, CIP), mengapakah ia dirujuk sebagai 'Pindahan Dua Titik' (Two-Point Transfer)?",
+      options: [
+        "Kerana kos dan risiko dipindahkan pada titik masa yang berbeza dan tempat yang berbeza.",
+        "Kerana barang dihantar ke dua buah negara yang berasingan secara serentak.",
+        "Kerana penjual wajib membayar kastam eksport dan kastam import secara serentak.",
+        "Kerana insurans dibayar oleh syarikat pembeli dan penjual secara bersama."
+      ],
+      correctAnswer: 0,
+      explanation: "Dalam Kumpulan C, Risiko berpindah di negara asal (semasa dimuatkan/diserahkan pengangkut), manakala Kos ditanggung oleh penjual sehingga ke destinasi negara import. Ini memisahkan titik kos dan risiko."
+    },
+    {
+      id: 6,
+      question: "Syarikat Gadget Trend mengeksport barang dengan kos EXW = RM100,000, Lori ke Pelabuhan Pulau Pinang = RM500, dan Kastam Eksport = RM300. Berapakah harga sebut harga bagi FOB Penang Port?",
+      options: [
+        "RM100,000",
+        "RM100,500",
+        "RM100,800",
+        "RM103,700"
+      ],
+      correctAnswer: 2,
+      explanation: "Harga FOB dihitung dengan menjumlahkan EXW (RM100,000) + Lori tempatan ke pelabuhan (RM500) + Pelepasan kastam eksport (RM300) = RM100,800. Risiko berpindah sebaik sahaja barang berada di atas kapal."
+    },
+    {
+      id: 7,
+      question: "Apakah perubahan ketara yang dilakukan apabila terma DAT ditukarkan kepada terma DPU dalam Incoterms 2020?",
+      options: [
+        "Insurans wajib dinaikkan kepada tahap perlindungan maksimum.",
+        "Tempat serahan tidak terhad kepada terminal sahaja, malah boleh di mana-mana lokasi yang dipersetujui selepas dipunggah.",
+        "Pembeli diwajibkan membayar cukai pelepasan kastam eksport.",
+        "Menggantikan mod laut kepada pengangkutan udara sahaja."
+      ],
+      correctAnswer: 1,
+      explanation: "DAT (Delivered at Terminal) dihadkan di terminal, manakala DPU (Delivered at Place Unloaded) membolehkan pemunggahan dilakukan di mana-mana tempat dinamakan di negara destinasi, memberikan fleksibiliti lokasi."
+    },
+    {
+      id: 8,
+      question: "Apakah perbezaan utama dari segi tahap perlindungan INSURANS antara terma CIP dan CIF di bawah peraturan 2020?",
+      options: [
+        "CIF memerlukan insurans ganti rugi penuh, manakala CIP tidak memerlukan insurans langsung.",
+        "CIP memerlukan perlindungan penuh Institute Cargo Clauses (A) manakala CIF mengekalkan perlindungan minimum di bawah Clauses (C).",
+        "Kedua-dua terma tidak lagi mewajibkan penjual membeli insurans.",
+        "CIF diuruskan oleh pembeli manakala CIP diuruskan oleh syarikat pengangkutan."
+      ],
+      correctAnswer: 1,
+      explanation: "Incoterms® 2020 menaikkan syarat perlindungan insurans standard untuk terma CIP kepada Clauses (A) (All Risks), sementara terma CIF dikekalkan pada Clauses (C) (Perlengapan minimum)."
+    },
+    {
+      id: 9,
+      question: "Bagi urusan kastam eksport di Malaysia, borang manakah yang mesti diisytiharkan oleh pihak yang bertanggungjawab?",
+      options: [
+        "Borang K1",
+        "Borang K2",
+        "Borang K8",
+        "Borang K9"
+      ],
+      correctAnswer: 1,
+      explanation: "Borang K2 digunakan untuk deklarasi eksport di Kastam Diraja Malaysia. Borang K1 digunakan untuk pengisytiharan import."
+    },
+    {
+      id: 10,
+      question: "Sekiranya kapal kontena karam di Lautan Pasifik semasa membawa barangan yang dijual di bawah terma CIF Tokyo Port, siapakah yang menanggung kerugian kerosakan kargo tersebut?",
+      options: [
+        "Penjual (Pengeksport), kerana kos pengangkutan dibayar sehingga ke pelabuhan Tokyo.",
+        "Pembeli (Pengimport), kerana risiko telah dipindahkan sebaik kargo dimuatkan di pelabuhan pelepasan.",
+        "Syarikat insurans secara langsung tanpa perlu membuat sebarang tuntutan fail.",
+        "Kapten kapal secara peribadi kerana gagal mengelak kemalangan."
+      ],
+      correctAnswer: 1,
+      explanation: "Di bawah terma CIF, risiko berpindah kepada pembeli sebaik sahaja barang dimuatkan ke atas kapal di pelabuhan pelepasan (negara asal). Walaupun penjual membeli insurans, hak tuntutan insurans diserahkan kepada pembeli kerana pembeli yang menanggung risiko tersebut semasa transit."
+    }
+  ]
+};
+
+</script>
+<script>
+// js/app.js - Logik Interaktif Platform Pembelajaran Incoterms SLK30203
+
+document.addEventListener("DOMContentLoaded", () => {
+  // --- KUMPULAN STATE APLIKASI ---
+  const state = {
+    studentName: "Pelajar SPL",
+    currentProgress: {
+      introRead: false,
+      historyExplored: false,
+      termsViewed: new Set(),
+      simulationRuns: new Set(),
+      calculatorInteracted: false,
+      quizCompleted: false
+    },
+    locks: {
+      mod3: false,
+      mod4: false,
+      kuiz: false
+    },
+    activeTerm: "EXW",
+    simSelectedTerm: "EXW",
+    simRunning: false,
+    caseStudyParams: { ...IncotermsData.defaultCaseStudy },
+    quizState: {
+      currentQuestionIdx: 0,
+      score: 0,
+      answers: [], // menyimpan betul/salah setiap soalan
+      isAnswered: false,
+      userAnswersCount: 0
+    },
+    classStudents: []
+  };
+
+  // --- ELEMEN-ELEMEN DOM ---
+  const DOM = {
+    // Navigasi
+    tabs: document.querySelectorAll(".tab-btn"),
+    sections: document.querySelectorAll(".module-section"),
+    progressBar: document.getElementById("overall-progress-bar"),
+    progressText: document.getElementById("overall-progress-text"),
+    btnStartLearning: document.getElementById("btn-start-learning"),
+    
+    // Nama Pelajar
+    nameCard: document.getElementById("student-name-card"),
+    inputStudentName: document.getElementById("input-student-name"),
+    btnSaveStudentName: document.getElementById("btn-save-student-name"),
+    certStudentName: document.getElementById("cert-student-name"),
+    pdfStudentName: document.getElementById("pdf-student-name"),
+    
+    // Modul 1
+    definitionText: document.getElementById("txt-incoterms-definition"),
+    pillarsContainer: document.getElementById("pillars-list-container"),
+    notControlledList: document.getElementById("not-controlled-list"),
+    timelineSlider: document.getElementById("slider-timeline-history"),
+    timelineTicks: document.getElementById("timeline-ticks-container"),
+    timelineYear: document.getElementById("timeline-display-year"),
+    timelineText: document.getElementById("timeline-display-text"),
+    btnPrevTimeline: document.getElementById("btn-prev-timeline"),
+    btnNextTimeline: document.getElementById("btn-next-timeline"),
+    updatesContainer: document.getElementById("updates-2020-container"),
+    
+    // Modul 2
+    filterBtns: document.querySelectorAll(".filter-btn"),
+    termsGrid: document.getElementById("terms-grid-container"),
+    termDetailSection: document.getElementById("term-detail-section"),
+    
+    // Modul 3
+    simTermTitle: document.getElementById("sim-term-title"),
+    simModeDisplay: document.getElementById("sim-mode-display"),
+    simVehicle: document.getElementById("cargo-transit-vehicle"),
+    simRiskIndicator: document.getElementById("sim-risk-indicator"),
+    simCostSellerBar: document.getElementById("cost-bar-seller"),
+    simCostBuyerBar: document.getElementById("cost-bar-buyer"),
+    simCostPointText: document.getElementById("sim-cost-point-text"),
+    simRiskPointText: document.getElementById("sim-risk-point-text"),
+    simTermsList: document.getElementById("sim-terms-selector-list"),
+    btnRunSimulation: document.getElementById("btn-run-simulation"),
+    simCustomsExportCard: document.getElementById("sim-customs-export-card"),
+    simCustomsImportCard: document.getElementById("sim-customs-import-card"),
+    simCustomsExportPihak: document.getElementById("sim-customs-export-pihak"),
+    simCustomsImportPihak: document.getElementById("sim-customs-import-pihak"),
+    simCustomsExportStamp: document.getElementById("sim-customs-export-stamp"),
+    simCustomsImportStamp: document.getElementById("sim-customs-import-stamp"),
+    
+    // Modul 4
+    caseStudyList: document.getElementById("case-study-params-list"),
+    btnResetCalc: document.getElementById("btn-reset-calc-inputs"),
+    // Input Kajian Kes
+    inputExWorks: document.getElementById("input-exworks-price"),
+    inputTruck: document.getElementById("input-truck-to-port"),
+    inputExportClearance: document.getElementById("input-export-clearance"),
+    inputOceanFreight: document.getElementById("input-ocean-freight"),
+    inputInsurance: document.getElementById("input-cargo-insurance"),
+    inputTokyoThc: document.getElementById("input-tokyo-thc"),
+    inputImportDuty: document.getElementById("input-import-duty"),
+    inputFinalDelivery: document.getElementById("input-final-delivery"),
+    // Hasil Sebutharga
+    calcValEXW: document.getElementById("calc-val-EXW"),
+    calcValFOB: document.getElementById("calc-val-FOB"),
+    calcValCIF: document.getElementById("calc-val-CIF"),
+    calcValDDP: document.getElementById("calc-val-DDP"),
+    calcCardEXW: document.getElementById("calc-card-EXW"),
+    calcCardFOB: document.getElementById("calc-card-FOB"),
+    calcCardCIF: document.getElementById("calc-card-CIF"),
+    calcCardDDP: document.getElementById("calc-card-DDP"),
+    
+    // Kuiz
+    quizGameplay: document.getElementById("quiz-gameplay-container"),
+    quizResult: document.getElementById("quiz-result-container"),
+    quizQuestionNum: document.getElementById("quiz-question-number-display"),
+    quizScoreDisplay: document.getElementById("quiz-score-display"),
+    quizDotsContainer: document.getElementById("quiz-progress-dots-container"),
+    quizQuestionText: document.getElementById("quiz-question-text"),
+    quizOptionsContainer: document.getElementById("quiz-options-container"),
+    quizExplanationBox: document.getElementById("quiz-explanation-box"),
+    quizExplanationTitle: document.getElementById("quiz-explanation-title"),
+    quizExplanationText: document.getElementById("quiz-explanation-text"),
+    btnNextQuestion: document.getElementById("btn-next-question"),
+    btnRestartQuiz: document.getElementById("btn-restart-quiz"),
+    certQuizScore: document.getElementById("cert-quiz-score"),
+    
+    // Panel Pensyarah & Modal
+    btnLecturerModal: document.getElementById("btn-lecturer-modal-trigger"),
+    modalLogin: document.getElementById("modal-lecturer-login"),
+    modalPanel: document.getElementById("modal-lecturer-panel"),
+    btnCloseLogin: document.getElementById("btn-close-login-modal"),
+    btnClosePanel: document.getElementById("btn-close-panel-modal"),
+    inputLecturerPass: document.getElementById("input-lecturer-password"),
+    btnSubmitLecturerPass: document.getElementById("btn-submit-lecturer-password"),
+    loginError: document.getElementById("lecturer-login-error"),
+    // Kawalan Parameter Modal Pensyarah
+    lectExWorks: document.getElementById("lect-exworks-price"),
+    lectOceanFreight: document.getElementById("lect-ocean-freight"),
+    lectImportDuty: document.getElementById("lect-import-duty"),
+    btnUpdateLectParams: document.getElementById("btn-update-lect-params"),
+    // Widgets Pensyarah
+    widgetTotalStudents: document.getElementById("widget-total-students"),
+    widgetAvgProgress: document.getElementById("widget-avg-progress"),
+    widgetAvgQuiz: document.getElementById("widget-avg-quiz"),
+    studentTableBody: document.getElementById("student-table-body"),
+    btnExportCSV: document.getElementById("btn-export-students-csv"),
+    btnResetClassData: document.getElementById("btn-reset-class-data"),
+    // Togel Kunci
+    toggleLockMod3: document.getElementById("toggle-lock-mod3"),
+    toggleLockMod4: document.getElementById("toggle-lock-mod4"),
+    toggleLockKuiz: document.getElementById("toggle-lock-kuiz"),
+    
+    // PDF Buttons & Printable Container
+    btnDownloadPDFTop: document.getElementById("btn-download-pdf-top"),
+    btnDownloadHandbook: document.getElementById("btn-download-handbook"),
+    btnResetStudentProfile: document.getElementById("btn-reset-student-profile"),
+    btnDownloadNotesEnd: document.getElementById("btn-download-notes-end"),
+    printableHandbook: document.getElementById("academic-handbook-printable"),
+    pdfTermsTableBody: document.getElementById("pdf-terms-table-body"),
+    pdfCaseStudyParamsBody: document.getElementById("pdf-case-study-params-body"),
+    pdfCalcEXWBox: document.getElementById("pdf-calc-EXW-box"),
+    pdfCalcFOBBox: document.getElementById("pdf-calc-FOB-box"),
+    pdfCalcCIFBox: document.getElementById("pdf-calc-CIF-box"),
+    pdfCalcDDPBox: document.getElementById("pdf-calc-DDP-box")
+  };
+
+  // Sinkronisasikan profil pelajar aktif ke dalam senarai kelas
+  function syncActiveStudentInList() {
+    const existing = state.classStudents.find(s => s.id === "S01");
+    if (existing) {
+      existing.name = state.studentName;
+    } else {
+      state.classStudents = [{
+        id: "S01",
+        name: state.studentName,
+        progress: 0,
+        quizScore: 0,
+        pdfDownloaded: "Belum",
+        lastActive: "Baru tadi"
+      }];
+    }
+  }
+
+  // --- MEMULAKAN PLATFORM (INIT) ---
+  function init() {
+    // Muatkan data dari localStorage jika ada
+    loadStateFromStorage();
+    
+    // Inisialisasikan senarai pelajar aktif sahaja
+    syncActiveStudentInList();
+    
+    // Set teks pengenalan
+    DOM.definitionText.textContent = IncotermsData.concept.definition;
+    
+    // Papar data dinamik Modul 1
+    renderPillars();
+    renderNotControlledList();
+    renderUpdates2020();
+    renderTimelineTicks();
+    updateTimelineEvent(state.timelineIndex !== undefined ? state.timelineIndex : IncotermsData.timeline.length - 1);
+    
+    // Papar data dinamik Modul 2
+    renderTermsGrid("all");
+    selectTerm(state.activeTerm);
+    
+    // Papar data dinamik Modul 3
+    renderSimulatorSelector();
+    updateSimulatorVisuals(state.simSelectedTerm);
+    
+    // Muatkan data kajian kes dan hitung sebutharga
+    resetCalculatorInputsToCaseStudy();
+    renderCaseStudyParams();
+    
+    // Kemas kini progress bar
+    updateProgress();
+    
+    // Siapkan data cetakan PDF
+    preparePDFData();
+
+    // Pastikan status sekat modul selaras
+    applyModuleLocks();
+
+    // Daftarkan semua Events
+    registerEventListeners();
+  }
+
+  // --- PENGURUSAN STATE & STORAGE ---
+  function saveStateToStorage() {
+    localStorage.setItem("incoterms_student_name", state.studentName);
+    localStorage.setItem("incoterms_progress", JSON.stringify({
+      introRead: state.currentProgress.introRead,
+      historyExplored: state.currentProgress.historyExplored,
+      termsViewed: Array.from(state.currentProgress.termsViewed),
+      simulationRuns: Array.from(state.currentProgress.simulationRuns),
+      calculatorInteracted: state.currentProgress.calculatorInteracted,
+      quizCompleted: state.currentProgress.quizCompleted
+    }));
+    localStorage.setItem("incoterms_locks", JSON.stringify(state.locks));
+    localStorage.setItem("incoterms_case_study", JSON.stringify(state.caseStudyParams));
+    localStorage.setItem("incoterms_quiz_score", state.quizState.score.toString());
+    localStorage.setItem("incoterms_class_students", JSON.stringify(state.classStudents));
+  }
+
+  function loadStateFromStorage() {
+    const savedName = localStorage.getItem("incoterms_student_name");
+    if (savedName) {
+      state.studentName = savedName;
+      DOM.inputStudentName.value = savedName;
+      DOM.certStudentName.textContent = savedName;
+      DOM.pdfStudentName.textContent = savedName;
+      DOM.nameCard.style.display = "none";
+    }
+
+    const savedProgress = localStorage.getItem("incoterms_progress");
+    if (savedProgress) {
+      try {
+        const parsed = JSON.parse(savedProgress);
+        state.currentProgress.introRead = parsed.introRead || false;
+        state.currentProgress.historyExplored = parsed.historyExplored || false;
+        state.currentProgress.termsViewed = new Set(parsed.termsViewed || []);
+        state.currentProgress.simulationRuns = new Set(parsed.simulationRuns || []);
+        state.currentProgress.calculatorInteracted = parsed.calculatorInteracted || false;
+        state.currentProgress.quizCompleted = parsed.quizCompleted || false;
+      } catch (e) {
+        console.error("Gagal memuatkan progress", e);
+      }
+    }
+
+    const savedLocks = localStorage.getItem("incoterms_locks");
+    if (savedLocks) {
+      try {
+        state.locks = JSON.parse(savedLocks);
+        DOM.toggleLockMod3.checked = state.locks.mod3;
+        DOM.toggleLockMod4.checked = state.locks.mod4;
+        DOM.toggleLockKuiz.checked = state.locks.kuiz;
+      } catch (e) {
+        console.error("Gagal memuatkan sekatan", e);
+      }
+    }
+
+    const savedCaseStudy = localStorage.getItem("incoterms_case_study");
+    if (savedCaseStudy) {
+      try {
+        state.caseStudyParams = JSON.parse(savedCaseStudy);
+        DOM.lectExWorks.value = state.caseStudyParams.exWorksPrice;
+        DOM.lectOceanFreight.value = state.caseStudyParams.oceanFreight;
+        DOM.lectImportDuty.value = state.caseStudyParams.japanImportDuty;
+      } catch (e) {
+        console.error("Gagal memuatkan parameter kajian kes", e);
+      }
+    }
+    
+    const savedQuizScore = localStorage.getItem("incoterms_quiz_score");
+    if (savedQuizScore) {
+      state.quizState.score = parseInt(savedQuizScore) || 0;
+      DOM.certQuizScore.textContent = `${state.quizState.score} / 100`;
+    }
+
+    const savedClassStudents = localStorage.getItem("incoterms_class_students");
+    if (savedClassStudents) {
+      try {
+        state.classStudents = JSON.parse(savedClassStudents).filter(s => s.id === "S01");
+      } catch (e) {
+        console.error("Gagal memuatkan senarai pelajar kelas", e);
+      }
+    }
+  }
+
+  // --- KIRAAN KEMAJUAN PELAJAR ---
+  function updateProgress() {
+    let completedPoints = 0;
+    let totalPoints = 15; // Definisi(1) + Sejarah(1) + 11 Terma viewed(11) + Simulator(1) + Calculator(1)
+
+    if (state.currentProgress.introRead) completedPoints += 1;
+    if (state.currentProgress.historyExplored) completedPoints += 1;
+    
+    // Setiap terma unik dibaca menyumbang mata
+    completedPoints += Math.min(11, state.currentProgress.termsViewed.size);
+    
+    if (state.currentProgress.simulationRuns.size > 0) completedPoints += 1;
+    if (state.currentProgress.calculatorInteracted) completedPoints += 1;
+
+    const percentage = Math.round((completedPoints / totalPoints) * 100);
+    DOM.progressBar.style.width = `${percentage}%`;
+    DOM.progressText.textContent = `${percentage}%`;
+
+    // Kemaskini progress pelajar aktif dalam mock data kelas
+    const currentStudent = state.classStudents.find(s => s.name === state.studentName);
+    if (currentStudent) {
+      currentStudent.progress = percentage;
+      if (state.currentProgress.quizCompleted) {
+        currentStudent.quizScore = state.quizState.score;
+      }
+    }
+    
+    saveStateToStorage();
+  }
+
+  // --- APLIKASI KAWALAN KUNCI MODUL ---
+  function applyModuleLocks() {
+    // Mengawal status tab
+    const tabMod3 = document.getElementById("tab-modul-3");
+    const tabMod4 = document.getElementById("tab-modul-4");
+    const tabKuiz = document.getElementById("tab-kuiz");
+    
+    const cardMod3 = document.getElementById("card-mod3");
+    const cardMod4 = document.getElementById("card-mod4");
+
+    if (state.locks.mod3) {
+      tabMod3.classList.add("locked");
+      cardMod3.classList.add("locked");
+    } else {
+      tabMod3.classList.remove("locked");
+      cardMod3.classList.remove("locked");
+    }
+
+    if (state.locks.mod4) {
+      tabMod4.classList.add("locked");
+      cardMod4.classList.add("locked");
+    } else {
+      tabMod4.classList.remove("locked");
+      cardMod4.classList.remove("locked");
+    }
+
+    if (state.locks.kuiz) {
+      tabKuiz.classList.add("locked");
+    } else {
+      tabKuiz.classList.remove("locked");
+    }
+  }
+
+  // --- PEMBINAAN COMPONENT DINAMIK ---
+
+  // Modul 1: 3 Pilar
+  function renderPillars() {
+    DOM.pillarsContainer.innerHTML = "";
+    IncotermsData.concept.pillars.forEach((p, idx) => {
+      const card = document.createElement("div");
+      card.className = `pillar-card ${idx === 0 ? "active" : ""}`;
+      card.innerHTML = `
+        <div class="pillar-card-icon">${p.icon}</div>
+        <div class="pillar-card-content">
+          <h4>${p.title}</h4>
+          <p>${p.description}</p>
+        </div>
+      `;
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".pillar-card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        state.currentProgress.introRead = true;
+        updateProgress();
+      });
+      DOM.pillarsContainer.appendChild(card);
+    });
+  }
+
+  // Modul 1: Perkara tidak dikawal
+  function renderNotControlledList() {
+    DOM.notControlledList.innerHTML = "";
+    IncotermsData.concept.notControlled.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      DOM.notControlledList.appendChild(li);
+    });
+  }
+
+  // Modul 1: Garis masa sejarah ticks
+  function renderTimelineTicks() {
+    DOM.timelineTicks.innerHTML = "";
+    IncotermsData.timeline.forEach((item, idx) => {
+      const tick = document.createElement("span");
+      tick.className = "timeline-tick-label";
+      tick.textContent = item.year;
+      tick.dataset.index = idx;
+      tick.addEventListener("click", () => {
+        DOM.timelineSlider.value = idx;
+        updateTimelineEvent(idx);
+      });
+      DOM.timelineTicks.appendChild(tick);
+    });
+  }
+
+  function updateTimelineEvent(idx) {
+    const event = IncotermsData.timeline[idx];
+    state.timelineIndex = idx;
+    DOM.timelineYear.textContent = event.year;
+    DOM.timelineText.textContent = event.event;
+    
+    // Aktifkan tick label semasa
+    document.querySelectorAll(".timeline-tick-label").forEach((el, index) => {
+      if (index === parseInt(idx)) {
+        el.classList.add("active");
+      } else {
+        el.classList.remove("active");
+      }
+    });
+
+    if (idx > 0) {
+      state.currentProgress.historyExplored = true;
+      updateProgress();
+    }
+  }
+
+  // Modul 1: Pelarasan 2020
+  function renderUpdates2020() {
+    DOM.updatesContainer.innerHTML = "";
+    IncotermsData.updates2020.forEach(up => {
+      const div = document.createElement("div");
+      div.className = "update-2020-card";
+      div.innerHTML = `
+        <h4>${up.title}</h4>
+        <p>${up.desc}</p>
+      `;
+      DOM.updatesContainer.appendChild(div);
+    });
+  }
+
+  // Modul 2: Grid 11 Terma
+  function renderTermsGrid(filter) {
+    DOM.termsGrid.innerHTML = "";
+    Object.values(IncotermsData.terms).forEach(term => {
+      // Penapis logic
+      if (filter !== "all") {
+        if (filter === "multimodal" && term.mode !== "multimodal") return;
+        if (filter === "sea" && term.mode !== "sea") return;
+        if (["E", "F", "C", "D"].includes(filter) && term.group !== filter) return;
+      }
+      
+      const card = document.createElement("div");
+      const isViewed = state.currentProgress.termsViewed.has(term.code);
+      card.className = `term-mini-card group-${term.group} ${term.code === state.activeTerm ? "active" : ""}`;
+      card.innerHTML = `
+        <div class="term-mini-header">
+          <span class="term-mini-code">${term.code}</span>
+          <span class="term-mini-group-badge badge-${term.group}">Kump. ${term.group}</span>
+        </div>
+        <div class="term-mini-name">${term.translation}</div>
+        <div class="term-mini-meta">
+          <span class="term-meta-tag ${term.mode}">${term.mode === "sea" ? "Laut" : "Multimodal"}</span>
+          ${isViewed ? '<span style="color:var(--success); font-weight:bold;">✓ Dibaca</span>' : ''}
+        </div>
+      `;
+      
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".term-mini-card").forEach(c => c.classList.remove("active"));
+        card.classList.add("active");
+        selectTerm(term.code);
+      });
+      
+      DOM.termsGrid.appendChild(card);
+    });
+  }
+
+  // Modul 2: Klik Papar Detail Terma
+  function selectTerm(code) {
+    state.activeTerm = code;
+    state.currentProgress.termsViewed.add(code);
+    updateProgress();
+    
+    // Tandakan kad yang sudah dibaca
+    const filter = document.querySelector(".filter-btn.active").dataset.filter;
+    renderTermsGrid(filter);
+    
+    const term = IncotermsData.terms[code];
+    const customsSummary = IncotermsData.customsSummary;
+    
+    DOM.termDetailSection.innerHTML = `
+      <div class="term-detail-container">
+        <div class="term-detail-header">
+          <div class="term-detail-title">
+            <h3>
+              <span class="logo-badge" style="background:var(--pink);">${term.code}</span>
+              ${term.name} - <span style="font-weight:600; font-size:1.1rem; color:var(--dark-light);">${term.translation}</span>
+            </h3>
+          </div>
+          <span class="term-mini-group-badge badge-${term.group}" style="font-size:0.9rem; padding:6px 14px;">Kumpulan: ${term.group}</span>
+        </div>
+        
+        <div class="term-detail-content-grid">
+          <div class="detail-info-block responsibility">
+            <h4>🔴 Tanggungjawab Penjual (Pengeksport)</h4>
+            <p>${term.sellerResponsibility}</p>
+          </div>
+          
+          <div class="detail-info-block" style="border-color:var(--baby-blue); background-color:var(--white);">
+            <h4 style="color:var(--baby-blue-hover);">🔵 Tanggungjawab Pembeli (Pengimport)</h4>
+            <p>${term.buyerResponsibility}</p>
+          </div>
+          
+          <div class="detail-info-block">
+            <h4>🛡️ Titik Pindahan Risiko</h4>
+            <p>${term.riskPoint}</p>
+          </div>
+          
+          <div class="detail-info-block">
+            <h4>💰 Pembahagian Kos Transit</h4>
+            <p>${term.costPoint}</p>
+          </div>
+          
+          <div class="detail-info-block">
+            <h4>🛂 Borang Kastam Eksport (K2)</h4>
+            <p><strong>Diurus oleh:</strong> ${term.customsExport}</p>
+            <p style="font-size:0.75rem; color:var(--dark-light); margin-top:4px;">Standard Borang K2 Malaysia: ${customsSummary.export.standard}</p>
+          </div>
+          
+          <div class="detail-info-block">
+            <h4>🛂 Borang Kastam Import (K1)</h4>
+            <p><strong>Diurus oleh:</strong> ${term.customsImport}</p>
+            <p style="font-size:0.75rem; color:var(--dark-light); margin-top:4px;">Standard Borang K1 Jepun: ${customsSummary.import.standard}</p>
+          </div>
+          
+          <div class="detail-info-block academic-block">
+            <h4>💡 Panduan Akademik Pensyarah (KK Papar)</h4>
+            <p>${term.academicNote}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // Modul 3: Senarai Terma dalam Simulator
+  function renderSimulatorSelector() {
+    DOM.simTermsList.innerHTML = "";
+    Object.keys(IncotermsData.terms).forEach(code => {
+      const item = document.createElement("div");
+      item.className = "pillar-card";
+      item.style.padding = "8px 12px";
+      item.style.margin = "0";
+      item.style.borderRadius = "8px";
+      item.dataset.code = code;
+      item.innerHTML = `
+        <div style="font-weight:800; font-size:1rem; color:var(--pink);">${code}</div>
+        <div style="font-size:0.7rem; color:var(--dark-light);">${IncotermsData.terms[code].name}</div>
+      `;
+      item.addEventListener("click", () => {
+        if (state.simRunning) return;
+        document.querySelectorAll("#sim-terms-selector-list .pillar-card").forEach(c => c.classList.remove("active"));
+        item.classList.add("active");
+        updateSimulatorVisuals(code);
+      });
+      DOM.simTermsList.appendChild(item);
+    });
+    
+    // Set default active term
+    const defaultItem = DOM.simTermsList.querySelector(`[data-code="${state.simSelectedTerm}"]`);
+    if (defaultItem) defaultItem.classList.add("active");
+  }
+
+  // Modul 3: Kemas kini Visual mengikut Terma Simulator
+  function updateSimulatorVisuals(code) {
+    state.simSelectedTerm = code;
+    const term = IncotermsData.terms[code];
+    
+    DOM.simTermTitle.textContent = `${term.code} - ${term.name}`;
+    DOM.simModeDisplay.textContent = `Mod Transit: ${term.mode === 'sea' ? 'Kapal Laut (Port-to-Port)' : 'Multimodal (Darat/Udara/Laut)'}`;
+    
+    // Kos and Risk Points Texts
+    DOM.simCostPointText.textContent = term.costPoint;
+    DOM.simRiskPointText.textContent = term.riskPoint;
+    
+    // Kastam Details
+    DOM.simCustomsExportPihak.textContent = term.customsExport;
+    DOM.simCustomsImportPihak.textContent = term.customsImport;
+    
+    // Reset stamps
+    DOM.simCustomsExportStamp.className = "customs-stamp";
+    DOM.simCustomsExportStamp.textContent = "BELUM DISAHKAN";
+    DOM.simCustomsImportStamp.className = "customs-stamp";
+    DOM.simCustomsImportStamp.textContent = "BELUM DISAHKAN";
+    
+    // Reset vehicle and indicators
+    DOM.simVehicle.style.left = "20px";
+    DOM.simRiskIndicator.style.display = "none";
+    DOM.simCostSellerBar.style.width = "0%";
+    DOM.simCostBuyerBar.style.width = "0%";
+    
+    // Kemaskini icon kenderaan
+    if (term.mode === "sea") {
+      DOM.simVehicle.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-ship"><path d="M2 21h20"></path><path d="M19.3 14.8C21.1 13.5 22 11.7 22 10V4h-3v3H5V4H2v6c0 1.7.9 3.5 2.7 4.8L2 20h20l-2.7-5.2z"></path></svg>
+      `;
+    } else {
+      DOM.simVehicle.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="feather feather-truck"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+      `;
+    }
+  }
+
+  // Modul 3: Jalankan transit kargo
+  function runTransitSimulation() {
+    if (state.simRunning) return;
+    state.simRunning = true;
+    DOM.btnRunSimulation.disabled = true;
+    DOM.btnRunSimulation.textContent = "Kargo Sedang Bergerak...";
+    
+    const code = state.simSelectedTerm;
+    const term = IncotermsData.terms[code];
+    
+    // Set titik peratusan risiko dan kos bagi visualisasi
+    let riskPercent = 5; // EXW
+    let costSellerPercent = 5; // EXW
+    
+    if (code === "EXW") {
+      riskPercent = 10;
+      costSellerPercent = 10;
+    } else if (code === "FAS") {
+      riskPercent = 35; // Tepi kapal
+      costSellerPercent = 35;
+    } else if (code === "FOB") {
+      riskPercent = 45; // Atas kapal
+      costSellerPercent = 45; // Termasuk pemuatan
+    } else if (code === "FCA") {
+      riskPercent = 25; // Pengangkut pertama
+      costSellerPercent = 25;
+    } else if (["CPT", "CIP"].includes(code)) {
+      riskPercent = 25; // Pengangkut pertama (risiko dipindah awal)
+      costSellerPercent = 75; // Tetapi kos ditanggung hingga destinasi pelabuhan
+    } else if (["CFR", "CIF"].includes(code)) {
+      riskPercent = 45; // Risiko pindah atas kapal di negara asal
+      costSellerPercent = 75; // Kos kapal dibayar hingga Tokyo port
+    } else if (["DAP", "DPU"].includes(code)) {
+      riskPercent = 85; // Destinasi (sebelum / selepas punggah)
+      costSellerPercent = 85;
+    } else if (code === "DDP") {
+      riskPercent = 95; // Gudang pembeli
+      costSellerPercent = 95;
+    }
+
+    // Jalankan Animasi Lori/Kapal
+    // Kita anggap masa simulasi adalah 3 saat (3000ms)
+    DOM.simVehicle.style.transition = "left 3.5s cubic-bezier(0.25, 0.8, 0.25, 1)";
+    DOM.simCostSellerBar.style.transition = "width 3.5s cubic-bezier(0.25, 0.8, 0.25, 1)";
+    DOM.simCostBuyerBar.style.transition = "width 3.5s cubic-bezier(0.25, 0.8, 0.25, 1)";
+    
+    // Mulakan pergerakan kenderaan
+    setTimeout(() => {
+      DOM.simVehicle.style.left = `calc(${riskPercent}% - 18px)`;
+      DOM.simCostSellerBar.style.width = `${costSellerPercent}%`;
+      DOM.simCostBuyerBar.style.width = `${100 - costSellerPercent}%`;
+    }, 50);
+
+    // Selepas separuh jalan, sahkan kastam eksport
+    setTimeout(() => {
+      DOM.simCustomsExportStamp.textContent = "TELAH DISAHKAN";
+      DOM.simCustomsExportStamp.classList.add(term.customsExport.includes("Penjual") ? "seller-responsible" : "buyer-responsible");
+    }, 1200);
+
+    // Di titik risiko, paparkan penunjuk risiko
+    setTimeout(() => {
+      DOM.simRiskIndicator.style.left = `${riskPercent}%`;
+      DOM.simRiskIndicator.style.display = "block";
+      DOM.simRiskIndicator.textContent = `Risiko Berpindah (${term.code})`;
+    }, 2000);
+
+    // Selepas tiba di destinasi, sahkan kastam import
+    setTimeout(() => {
+      DOM.simCustomsImportStamp.textContent = "TELAH DISAHKAN";
+      DOM.simCustomsImportStamp.classList.add(term.customsImport.includes("Penjual") ? "seller-responsible" : "buyer-responsible");
+      
+      // Jika EXW, lori terus ke hujung visual
+      if (code !== "EXW") {
+        DOM.simVehicle.style.left = "calc(95% - 18px)";
+      }
+    }, 2800);
+
+    // Selesai simulasi
+    setTimeout(() => {
+      state.simRunning = false;
+      DOM.btnRunSimulation.disabled = false;
+      DOM.btnRunSimulation.textContent = "Jalankan Simulasi Transit";
+      
+      state.currentProgress.simulationRuns.add(code);
+      updateProgress();
+    }, 3600);
+  }
+
+  // Modul 4: Parameter Kajian Kes Asal (Ulasan akademik)
+  function renderCaseStudyParams() {
+    DOM.caseStudyList.innerHTML = "";
+    
+    const params = [
+      { label: "Kuantiti Jam Tangan", val: `${state.caseStudyParams.quantity.toLocaleString()} unit` },
+      { label: "Kos EXW Seunit", val: `RM ${state.caseStudyParams.exWorksPrice}` },
+      { label: "Lori Tempatan (Penang Port)", val: `RM ${state.caseStudyParams.truckToPenang}` },
+      { label: "Pelepasan Kastam Eksport (K2)", val: `RM ${state.caseStudyParams.exportClearance}` },
+      { label: "Tambang Kapal Laut (ke Tokyo)", val: `RM ${state.caseStudyParams.oceanFreight}` },
+      { label: "Polisi Insurans Kargo Laut", val: `RM ${state.caseStudyParams.insurance}` },
+      { label: "Caj Pelabuhan Tokyo (THC)", val: `RM ${state.caseStudyParams.tokyoTHC}` },
+      { label: "Duti Kastam Import Jepun", val: `RM ${state.caseStudyParams.japanImportDuty}` },
+      { label: "Lori Gudang Akhir (Tokyo)", val: `RM ${state.caseStudyParams.finalDelivery}` }
+    ];
+    
+    params.forEach(p => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${p.label}:</strong> ${p.val}`;
+      DOM.caseStudyList.appendChild(li);
+    });
+  }
+
+  // Modul 4: Isi input dan kalkulasi
+  function resetCalculatorInputsToCaseStudy() {
+    DOM.inputExWorks.value = state.caseStudyParams.exWorksPrice;
+    DOM.inputTruck.value = state.caseStudyParams.truckToPenang;
+    DOM.inputExportClearance.value = state.caseStudyParams.exportClearance;
+    DOM.inputOceanFreight.value = state.caseStudyParams.oceanFreight;
+    DOM.inputInsurance.value = state.caseStudyParams.insurance;
+    DOM.inputTokyoThc.value = state.caseStudyParams.tokyoTHC;
+    DOM.inputImportDuty.value = state.caseStudyParams.japanImportDuty;
+    DOM.inputFinalDelivery.value = state.caseStudyParams.finalDelivery;
+
+    // Reset styles
+    document.querySelectorAll(".calc-input").forEach(input => {
+      input.classList.remove("modified");
+    });
+    
+    calculateQuotations();
+  }
+
+  function calculateQuotations() {
+    // Ambil nilai input pelajar
+    const qty = state.caseStudyParams.quantity;
+    const exwPrice = parseFloat(DOM.inputExWorks.value) || 0;
+    const truck = parseFloat(DOM.inputTruck.value) || 0;
+    const exportClear = parseFloat(DOM.inputExportClearance.value) || 0;
+    const ocean = parseFloat(DOM.inputOceanFreight.value) || 0;
+    const ins = parseFloat(DOM.inputInsurance.value) || 0;
+    const thc = parseFloat(DOM.inputTokyoThc.value) || 0;
+    const importDuty = parseFloat(DOM.inputImportDuty.value) || 0;
+    const finalDel = parseFloat(DOM.inputFinalDelivery.value) || 0;
+
+    // Kira Skema Asal Berdasarkan Input
+    const correctEXW = qty * exwPrice;
+    const correctFOB = correctEXW + truck + exportClear;
+    const correctCIF = correctFOB + ocean + ins;
+    const correctDDP = correctCIF + thc + importDuty + finalDel;
+
+    // Kemaskini Visual Paparan Sebutharga Pelajar
+    DOM.calcValEXW.textContent = `RM ${correctEXW.toLocaleString()}`;
+    DOM.calcValFOB.textContent = `RM ${correctFOB.toLocaleString()}`;
+    DOM.calcValCIF.textContent = `RM ${correctCIF.toLocaleString()}`;
+    DOM.calcValDDP.textContent = `RM ${correctDDP.toLocaleString()}`;
+
+    // Kemaskini Formula Dinamik
+    document.getElementById("calc-formula-EXW").textContent = `Formula: 1,000 unit × RM ${exwPrice} = RM ${correctEXW.toLocaleString()}`;
+    document.getElementById("calc-formula-FOB").textContent = `Formula: EXW (RM ${correctEXW.toLocaleString()}) + Lori (RM ${truck}) + Kastam Eksport (RM ${exportClear}) = RM ${correctFOB.toLocaleString()}`;
+    document.getElementById("calc-formula-CIF").textContent = `Formula: FOB (RM ${correctFOB.toLocaleString()}) + Tambang Kapal (RM ${ocean}) + Insurans (RM ${ins}) = RM ${correctCIF.toLocaleString()}`;
+    document.getElementById("calc-formula-DDP").textContent = `Formula: CIF (RM ${correctCIF.toLocaleString()}) + Caj Pelabuhan (RM ${thc}) + Duti Jepun (RM ${importDuty}) + Lori Akhir (RM ${finalDel}) = RM ${correctDDP.toLocaleString()}`;
+
+    // Tandakan interaksi kalkulator
+    state.currentProgress.calculatorInteracted = true;
+    updateProgress();
+    
+    // Kemaskini skema pdf
+    preparePDFData();
+  }
+
+  // --- INTEGRASI KUIZ PERDANGANGAN ---
+  function initQuiz() {
+    state.quizState.currentQuestionIdx = 0;
+    state.quizState.score = 0;
+    state.quizState.answers = [];
+    state.quizState.isAnswered = false;
+    
+    DOM.quizGameplay.style.display = "block";
+    DOM.quizResult.style.display = "none";
+    
+    renderQuizProgressDots();
+    showQuizQuestion();
+  }
+
+  function renderQuizProgressDots() {
+    DOM.quizDotsContainer.innerHTML = "";
+    IncotermsData.quizQuestions.forEach((_, idx) => {
+      const dot = document.createElement("div");
+      dot.className = "quiz-progress-dot";
+      DOM.quizDotsContainer.appendChild(dot);
+    });
+  }
+
+  function showQuizQuestion() {
+    state.quizState.isAnswered = false;
+    DOM.btnNextQuestion.style.display = "none";
+    DOM.quizExplanationBox.style.display = "none";
+    
+    const idx = state.quizState.currentQuestionIdx;
+    const question = IncotermsData.quizQuestions[idx];
+    
+    DOM.quizQuestionNum.textContent = `Soalan ${idx + 1} daripada ${IncotermsData.quizQuestions.length}`;
+    DOM.quizScoreDisplay.textContent = `Skor: ${state.quizState.score} / 100`;
+    
+    // Kemaskini dot aktif
+    const dots = document.querySelectorAll(".quiz-progress-dot");
+    dots.forEach((dot, dotIdx) => {
+      if (dotIdx === idx) {
+        dot.className = "quiz-progress-dot active";
+      }
+    });
+
+    DOM.quizQuestionText.textContent = question.question;
+    DOM.quizOptionsContainer.innerHTML = "";
+    
+    question.options.forEach((opt, optIdx) => {
+      const btn = document.createElement("button");
+      btn.className = "quiz-option-btn";
+      btn.innerHTML = `<span style="font-weight:700; margin-right:8px;">${String.fromCharCode(65 + optIdx)}.</span> ${opt}`;
+      btn.addEventListener("click", () => {
+        if (state.quizState.isAnswered) return;
+        checkQuizAnswer(optIdx);
+      });
+      DOM.quizOptionsContainer.appendChild(btn);
+    });
+  }
+
+  function checkQuizAnswer(selectedIdx) {
+    state.quizState.isAnswered = true;
+    const idx = state.quizState.currentQuestionIdx;
+    const question = IncotermsData.quizQuestions[idx];
+    const isCorrect = selectedIdx === question.correctAnswer;
+    
+    const options = DOM.quizOptionsContainer.querySelectorAll(".quiz-option-btn");
+    const dots = document.querySelectorAll(".quiz-progress-dot");
+    
+    if (isCorrect) {
+      state.quizState.score += 10;
+      state.quizState.answers.push(true);
+      options[selectedIdx].classList.add("correct");
+      dots[idx].className = "quiz-progress-dot correct";
+      DOM.quizExplanationTitle.innerHTML = "🎉 JAWAPAN TEPAT!";
+      DOM.quizExplanationBox.style.borderColor = "#c6f6d5";
+      DOM.quizExplanationBox.style.backgroundColor = "#f0fff4";
+      DOM.quizExplanationTitle.style.color = "var(--success)";
+    } else {
+      state.quizState.answers.push(false);
+      options[selectedIdx].classList.add("wrong");
+      options[question.correctAnswer].classList.add("correct"); // Tunjukkan jawapan betul
+      dots[idx].className = "quiz-progress-dot wrong";
+      DOM.quizExplanationTitle.innerHTML = "❌ KEPUTUSAN KURANG TEPAT";
+      DOM.quizExplanationBox.style.borderColor = "#fed7d7";
+      DOM.quizExplanationBox.style.backgroundColor = "#fff5f5";
+      DOM.quizExplanationTitle.style.color = "var(--error)";
+    }
+
+    DOM.quizExplanationText.textContent = question.explanation;
+    DOM.quizExplanationBox.style.display = "block";
+    DOM.quizScoreDisplay.textContent = `Skor: ${state.quizState.score} / 100`;
+    
+    // Tunjukkan butang seterusnya / selesai
+    DOM.btnNextQuestion.style.display = "inline-flex";
+    if (idx === IncotermsData.quizQuestions.length - 1) {
+      DOM.btnNextQuestion.textContent = "Lihat Keputusan Akhir";
+    } else {
+      DOM.btnNextQuestion.textContent = "Soalan Seterusnya";
+    }
+  }
+
+  function nextQuizStep() {
+    const idx = state.quizState.currentQuestionIdx;
+    if (idx < IncotermsData.quizQuestions.length - 1) {
+      state.quizState.currentQuestionIdx += 1;
+      showQuizQuestion();
+    } else {
+      // Selesai Kuiz!
+      state.currentProgress.quizCompleted = true;
+      updateProgress();
+      
+      DOM.quizGameplay.style.display = "none";
+      DOM.quizResult.style.display = "block";
+      DOM.certQuizScore.textContent = `${state.quizState.score} / 100`;
+      
+      // Kemaskini laporan pensyarah
+      const currentStudent = state.classStudents.find(s => s.name === state.studentName);
+      if (currentStudent) {
+        currentStudent.quizScore = state.quizState.score;
+      }
+      
+      saveStateToStorage();
+    }
+  }
+
+  // --- PANEL KAWALAN PENSYARAH ---
+  function checkLecturerLogin() {
+    const pass = DOM.inputLecturerPass.value;
+    if (pass === "pensyarah123") {
+      DOM.loginError.style.display = "none";
+      DOM.modalLogin.classList.remove("active");
+      DOM.modalPanel.classList.add("active");
+      DOM.inputLecturerPass.value = "";
+      renderLecturerDashboard();
+    } else {
+      DOM.loginError.style.display = "block";
+    }
+  }
+
+  function renderLecturerDashboard() {
+    // Kirakan widget statistik kelas
+    const total = state.classStudents.length;
+    
+    let sumProgress = 0;
+    let sumQuiz = 0;
+    let quizTakers = 0;
+
+    state.classStudents.forEach(s => {
+      sumProgress += s.progress;
+      if (s.progress === 100 || s.quizScore > 0) {
+        sumQuiz += s.quizScore;
+        quizTakers++;
+      }
+    });
+
+    const avgProgress = Math.round(sumProgress / total);
+    const avgQuiz = quizTakers > 0 ? Math.round(sumQuiz / quizTakers) : 0;
+
+    DOM.widgetTotalStudents.textContent = `${total} orang`;
+    DOM.widgetAvgProgress.textContent = `${avgProgress}%`;
+    DOM.widgetAvgQuiz.textContent = `${avgQuiz}%`;
+
+    // Render Jadual Pelajar
+    DOM.studentTableBody.innerHTML = "";
+    state.classStudents.forEach(s => {
+      const tr = document.createElement("tr");
+      
+      let progressBadge = `<span class="badge-status pending">${s.progress}%</span>`;
+      if (s.progress === 100) {
+        progressBadge = `<span class="badge-status completed">Selesai 100%</span>`;
+      }
+      
+      let scoreText = s.quizScore > 0 ? `${s.quizScore} / 100` : `<span style="color:var(--dark-light); font-style:italic;">Belum Kuiz</span>`;
+      
+      let pdfBadge = s.pdfDownloaded === "Sudah" ? `<span class="badge-status downloaded">Muat Turun</span>` : `<span class="badge-status pending">Belum</span>`;
+
+      tr.innerHTML = `
+        <td>${s.id}</td>
+        <td><strong>${s.name}</strong></td>
+        <td>${progressBadge}</td>
+        <td>${scoreText}</td>
+        <td>${pdfBadge}</td>
+        <td>${s.lastActive}</td>
+      `;
+      DOM.studentTableBody.appendChild(tr);
+    });
+  }
+
+  // Eksport laporan data kelas ke CSV
+  function exportClassDataToCSV() {
+    let csvContent = "data:text/csv;charset=utf-8,";
+    csvContent += "ID Pelajar,Nama Pelajar,Peratus Kemajuan (%),Skor Kuiz (100),Status Muat Turun PDF,Aktif Terakhir\r\n";
+    
+    state.classStudents.forEach(s => {
+      csvContent += `${s.id},"${s.name}",${s.progress},${s.quizScore},${s.pdfDownloaded},${s.lastActive}\r\n`;
+    });
+    
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "Prestasi_Pelajar_Incoterms_SLK30203.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+
+  // Mengubah parameter kajian kes oleh pensyarah
+  function updateLecturerParams() {
+    const exwVal = parseFloat(DOM.lectExWorks.value) || 0;
+    const oceanVal = parseFloat(DOM.lectOceanFreight.value) || 0;
+    const dutyVal = parseFloat(DOM.lectImportDuty.value) || 0;
+
+    state.caseStudyParams.exWorksPrice = exwVal;
+    state.caseStudyParams.oceanFreight = oceanVal;
+    state.caseStudyParams.japanImportDuty = dutyVal;
+
+    // Kemaskini pendaftaran kalkulator pelajar
+    renderCaseStudyParams();
+    resetCalculatorInputsToCaseStudy();
+
+    alert("Berjaya! Parameter kajian kes telah dikemas kini untuk kelas logistik.");
+    saveStateToStorage();
+    DOM.modalPanel.classList.remove("active");
+  }
+
+  // Sifar semua data kelas
+  function resetClassData() {
+    const doReset = () => {
+      // Sifarkan semua kemajuan pelajar dalam senarai kelas
+      state.classStudents = state.classStudents.map(s => ({
+        ...s,
+        progress: 0,
+        quizScore: 0,
+        pdfDownloaded: "Belum"
+      }));
+      
+      // Sifarkan kemajuan interaktif pelajar semasa
+      state.currentProgress = {
+        introRead: false,
+        historyExplored: false,
+        termsViewed: new Set(),
+        simulationRuns: new Set(),
+        calculatorInteracted: false,
+        quizCompleted: false
+      };
+      state.quizState.score = 0;
+      
+      resetCalculatorInputsToCaseStudy();
+      updateProgress();
+      renderLecturerDashboard();
+    };
+
+    try {
+      if (confirm("Adakah anda pasti untuk menetapkan semula kemajuan dan markah semua pelajar? Tindakan ini tidak boleh diundurkan.")) {
+        doReset();
+        alert("Kemajuan kelas logistik telah disifarkan semula.");
+      }
+    } catch (e) {
+      console.warn("Fungsi confirm() disekat oleh pelayar, menjalankan tetapan semula secara terus.", e);
+      doReset();
+    }
+  }
+
+  // Reset Nama, Markah, dan Progress Pelajar
+  function resetStudentProfile() {
+    const doReset = () => {
+      // 1. Reset Nama ke default
+      state.studentName = "Pelajar SPL";
+      DOM.inputStudentName.value = "Pelajar SPL";
+      DOM.certStudentName.textContent = "Pelajar SPL";
+      DOM.pdfStudentName.textContent = "Pelajar SPL";
+      
+      // Kembalikan kad input nama di skrin
+      DOM.nameCard.style.display = "block";
+      
+      // 2. Sifarkan progress interaktif
+      state.currentProgress = {
+        introRead: false,
+        historyExplored: false,
+        termsViewed: new Set(),
+        simulationRuns: new Set(),
+        calculatorInteracted: false,
+        quizCompleted: false
+      };
+      
+      // 3. Sifarkan skor kuiz
+      state.quizState.score = 0;
+      state.quizState.currentQuestionIdx = 0;
+      state.quizState.answers = [];
+      state.quizState.isAnswered = false;
+      
+      // Hembunyikan paparan keputusan kuiz dan kembalikan ke permainan
+      DOM.quizGameplay.style.display = "block";
+      DOM.quizResult.style.display = "none";
+      
+      // Reset input kalkulator kepada kajian kes asal
+      resetCalculatorInputsToCaseStudy();
+      
+      // Kemaskini nama pelajar ID S01 dalam table kembali ke default
+      const s01 = state.classStudents.find(s => s.id === "S01");
+      if (s01) {
+        s01.name = "Ahmad Zaki bin Rosli";
+      }
+      
+      // Hitung dan kemaskini progress visual
+      updateProgress();
+      
+      // Lukis semula senarai kemajuan kelas
+      renderLecturerDashboard();
+    };
+
+    try {
+      if (confirm("Adakah anda pasti untuk menetapkan semula Nama Profil, Markah Kuiz, dan Kemajuan Pembelajaran anda ke 0%?")) {
+        doReset();
+        alert("Profil dan kemajuan anda telah disifarkan semula!");
+      }
+    } catch (e) {
+      console.warn("Fungsi confirm() disekat, melakukan reset profil secara terus.", e);
+      doReset();
+    }
+  }
+
+  // --- PENYEDIAAN NOTA CETAKAN HANDBOOK PDF ---
+  function preparePDFData() {
+    // 1. Jadual 11 terma
+    DOM.pdfTermsTableBody.innerHTML = "";
+    Object.values(IncotermsData.terms).forEach(term => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><strong>${term.code}</strong></td>
+        <td>${term.name}</td>
+        <td>${term.translation}</td>
+        <td>${term.mode === 'sea' ? 'Laut Sahaja' : 'Multimodal'}</td>
+        <td>Grup ${term.group}</td>
+      `;
+      DOM.pdfTermsTableBody.appendChild(tr);
+    });
+
+    // 2. Kajian kes params
+    DOM.pdfCaseStudyParamsBody.innerHTML = "";
+    const caseStudyParamsList = [
+      { label: "Bilangan Unit Jam Pintar", val: `${state.caseStudyParams.quantity} unit` },
+      { label: "Kos Kilang (EXW) seunit", val: `RM ${state.caseStudyParams.exWorksPrice}` },
+      { label: "Lori Tempatan ke Pelabuhan Pulau Pinang", val: `RM ${state.caseStudyParams.truckToPenang}` },
+      { label: "Deklarasi Kastam Eksport (K2)", val: `RM ${state.caseStudyParams.exportClearance}` },
+      { label: "Tambang Kapal Laut (Penang - Tokyo)", val: `RM ${state.caseStudyParams.oceanFreight}` },
+      { label: "Polisi Insurans Kargo Laut", val: `RM ${state.caseStudyParams.insurance}` },
+      { label: "Caj Pengendalian Pelabuhan Tokyo (THC)", val: `RM ${state.caseStudyParams.tokyoTHC}` },
+      { label: "Duti Cukai Import Jepun (K1)", val: `RM ${state.caseStudyParams.japanImportDuty}` },
+      { label: "Lori Gudang Akhir Tokyo ke gudang pembeli", val: `RM ${state.caseStudyParams.finalDelivery}` }
+    ];
+
+    caseStudyParamsList.forEach(p => {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `<td><strong>${p.label}</strong></td><td>${p.val}</td>`;
+      DOM.pdfCaseStudyParamsBody.appendChild(tr);
+    });
+
+    // 3. Formula & Keputusan Pengiraan Dinamik
+    const qty = state.caseStudyParams.quantity;
+    const exwPrice = state.caseStudyParams.exWorksPrice;
+    const truck = state.caseStudyParams.truckToPenang;
+    const exportClear = state.caseStudyParams.exportClearance;
+    const ocean = state.caseStudyParams.oceanFreight;
+    const ins = state.caseStudyParams.insurance;
+    const thc = state.caseStudyParams.tokyoTHC;
+    const importDuty = state.caseStudyParams.japanImportDuty;
+    const finalDel = state.caseStudyParams.finalDelivery;
+
+    const correctEXW = qty * exwPrice;
+    const correctFOB = correctEXW + truck + exportClear;
+    const correctCIF = correctFOB + ocean + ins;
+    const correctDDP = correctCIF + thc + importDuty + finalDel;
+
+    DOM.pdfCalcEXWBox.innerHTML = `
+      <strong>1. Pengiraan Sebutharga EXW (Ex Works):</strong><br>
+      Formula: Kuantiti &times; Kos Kilang seunit<br>
+      Kiraan: ${qty.toLocaleString()} unit &times; RM ${exwPrice} = <strong>RM ${correctEXW.toLocaleString()}</strong><br>
+      <em>Nota Akademik:</em> Pembeli mengambil kargo di kilang Pulau Pinang. Penjual menanggung kos sifar di luar pagar gudang.
+    `;
+
+    DOM.pdfCalcFOBBox.innerHTML = `
+      <strong>2. Pengiraan Sebutharga FOB (Free on Board):</strong><br>
+      Formula: Kos EXW + Lori Tempatan + Kastam Eksport (K2)<br>
+      Kiraan: RM ${correctEXW.toLocaleString()} + RM ${truck} + RM ${exportClear} = <strong>RM ${correctFOB.toLocaleString()}</strong><br>
+      <em>Nota Akademik:</em> Risiko dan kos dipindah kepada pembeli asing selepas kontena berada di atas kapal laut pelabuhan asal.
+    `;
+
+    DOM.pdfCalcCIFBox.innerHTML = `
+      <strong>3. Pengiraan Sebutharga CIF (Cost, Insurance & Freight):</strong><br>
+      Formula: Kos FOB + Tambang Kapal Laut + Insurans Kargo<br>
+      Kiraan: RM ${correctFOB.toLocaleString()} + RM ${ocean} + RM ${ins} = <strong>RM ${correctCIF.toLocaleString()}</strong><br>
+      <em>Nota Akademik:</em> Penjual membayar insurans minimum perlindungan kargo (C) bagi pihak pembeli. Risiko kerosakan laut ditanggung pembeli.
+    `;
+
+    DOM.pdfCalcDDPBox.innerHTML = `
+      <strong>4. Pengiraan Sebutharga DDP (Delivered Duty Paid):</strong><br>
+      Formula: Kos CIF + Caj Pelabuhan Tokyo + Cukai Import Jepun (K1) + Lori Domestik Jepun<br>
+      Kiraan: RM ${correctCIF.toLocaleString()} + RM ${thc} + RM ${importDuty} + RM ${finalDel} = <strong>RM ${correctDDP.toLocaleString()}</strong><br>
+      <em>Nota Akademik:</em> Penjual asing wajib menguruskan kastam import domestik Jepun. Kos landed cost paling tinggi.
+    `;
+  }
+
+  // Logik menjana fail PDF secara dinamik
+  function downloadHandbookPDF() {
+    DOM.pdfStudentName.textContent = state.studentName;
+    preparePDFData();
+
+    // Tandakan dalam progress pelajar
+    const currentStudent = state.classStudents.find(s => s.name === state.studentName);
+    if (currentStudent) {
+      currentStudent.pdfDownloaded = "Sudah";
+    }
+    updateProgress();
+
+    // Cetak menggunakan fungsi cetakan asli pelayar (Save as PDF)
+    window.print();
+  }
+
+  // --- REGISTER EVENT LISTENERS ---
+  function registerEventListeners() {
+    // 1. Tab switching
+    DOM.tabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        const targetId = tab.dataset.target;
+        
+        // Semak locks
+        if (targetId === "section-modul-3" && state.locks.mod3) {
+          alert("Akses Disekat! Modul 3 (Simulasi Risiko) sedang dikunci oleh Pensyarah.");
+          return;
+        }
+        if (targetId === "section-modul-4" && state.locks.mod4) {
+          alert("Akses Disekat! Modul 4 (Kajian Kes Kos) sedang dikunci oleh Pensyarah.");
+          return;
+        }
+        if (targetId === "section-kuiz" && state.locks.kuiz) {
+          alert("Akses Ujian Disekat! Kuiz Uji Minda sedang dikunci oleh Pensyarah.");
+          return;
+        }
+
+        // Tukar tab aktif
+        DOM.tabs.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        // Tukar skrin
+        DOM.sections.forEach(s => s.classList.remove("active"));
+        document.getElementById(targetId).classList.add("active");
+
+        // Set state pembacaan modul jika tab dibuka
+        if (targetId === "section-modul-1") {
+          state.currentProgress.introRead = true;
+          updateProgress();
+        }
+        if (targetId === "section-kuiz" && !state.currentProgress.quizCompleted) {
+          initQuiz();
+        }
+      });
+    });
+
+    // 1b. Module cards clicking (Teroka Modul)
+    document.querySelectorAll(".module-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const targetId = card.dataset.target;
+        if (targetId) {
+          const tab = document.querySelector(`.tab-btn[data-target="${targetId}"]`);
+          if (tab) {
+            tab.click();
+          }
+        }
+      });
+    });
+
+    // 2. Mula belajar button
+    DOM.btnStartLearning.addEventListener("click", () => {
+      const tabMod1 = document.getElementById("tab-modul-1");
+      if (tabMod1) tabMod1.click();
+    });
+
+    // 3. Simpan nama pelajar
+    DOM.btnSaveStudentName.addEventListener("click", () => {
+      const name = DOM.inputStudentName.value.trim();
+      if (name.length > 0) {
+        state.studentName = name;
+        DOM.certStudentName.textContent = name;
+        DOM.pdfStudentName.textContent = name;
+        DOM.nameCard.style.display = "none";
+        
+        // Kemaskini nama pelajar aktif dalam senarai kelas
+        syncActiveStudentInList();
+        
+        saveStateToStorage();
+        updateProgress();
+      }
+    });
+
+    // 4. Modul 1 Timeline Slider
+    DOM.timelineSlider.addEventListener("input", (e) => {
+      updateTimelineEvent(e.target.value);
+    });
+
+    DOM.btnPrevTimeline.addEventListener("click", () => {
+      const val = parseInt(DOM.timelineSlider.value);
+      if (val > 0) {
+        DOM.timelineSlider.value = val - 1;
+        updateTimelineEvent(val - 1);
+      }
+    });
+
+    DOM.btnNextTimeline.addEventListener("click", () => {
+      const val = parseInt(DOM.timelineSlider.value);
+      if (val < IncotermsData.timeline.length - 1) {
+        DOM.timelineSlider.value = val + 1;
+        updateTimelineEvent(val + 1);
+      }
+    });
+
+    // 5. Modul 2 Filters
+    DOM.filterBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        DOM.filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderTermsGrid(btn.dataset.filter);
+      });
+    });
+
+    // 6. Modul 3 Simulation Controls
+    DOM.btnRunSimulation.addEventListener("click", () => {
+      runTransitSimulation();
+    });
+
+    // 7. Modul 4 Calculator Inputs Live
+    const inputs = [
+      DOM.inputExWorks, DOM.inputTruck, DOM.inputExportClearance,
+      DOM.inputOceanFreight, DOM.inputInsurance, DOM.inputTokyoThc,
+      DOM.inputImportDuty, DOM.inputFinalDelivery
+    ];
+
+    inputs.forEach(input => {
+      input.addEventListener("input", (e) => {
+        // Tandakan input yang diubah sebagai modified untuk gaya visual
+        const baseField = e.target.id.replace("input-", "");
+        let fieldName = "";
+        
+        if (baseField === "exworks-price") fieldName = "exWorksPrice";
+        else if (baseField === "truck-to-port") fieldName = "truckToPenang";
+        else if (baseField === "export-clearance") fieldName = "exportClearance";
+        else if (baseField === "cargo-insurance") fieldName = "insurance";
+        else if (baseField === "tokyo-thc") fieldName = "tokyoTHC";
+        else if (baseField === "import-duty") fieldName = "japanImportDuty";
+        else if (baseField === "final-delivery") fieldName = "finalDelivery";
+        else if (baseField === "ocean-freight") fieldName = "oceanFreight";
+
+        if (fieldName && parseFloat(e.target.value) !== state.caseStudyParams[fieldName]) {
+          e.target.classList.add("modified");
+        } else {
+          e.target.classList.remove("modified");
+        }
+
+        calculateQuotations();
+      });
+    });
+
+    DOM.btnResetCalc.addEventListener("click", () => {
+      resetCalculatorInputsToCaseStudy();
+    });
+
+    // 8. Quiz Controls
+    DOM.btnNextQuestion.addEventListener("click", () => {
+      nextQuizStep();
+    });
+
+    DOM.btnRestartQuiz.addEventListener("click", () => {
+      initQuiz();
+    });
+
+    // 9. Lecturer Modal Login Toggle
+    DOM.btnLecturerModal.addEventListener("click", () => {
+      DOM.modalLogin.classList.add("active");
+    });
+
+    DOM.btnCloseLogin.addEventListener("click", () => {
+      DOM.modalLogin.classList.remove("active");
+      DOM.loginError.style.display = "none";
+    });
+
+    DOM.btnSubmitLecturerPass.addEventListener("click", () => {
+      checkLecturerLogin();
+    });
+
+    DOM.inputLecturerPass.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        checkLecturerLogin();
+      }
+    });
+
+    DOM.btnClosePanel.addEventListener("click", () => {
+      DOM.modalPanel.classList.remove("active");
+    });
+
+    // Close on overlay click
+    window.addEventListener("click", (e) => {
+      if (e.target === DOM.modalLogin) {
+        DOM.modalLogin.classList.remove("active");
+        DOM.loginError.style.display = "none";
+      }
+      if (e.target === DOM.modalPanel) {
+        DOM.modalPanel.classList.remove("active");
+      }
+    });
+
+    // 10. Lecturer Controls
+    DOM.btnUpdateLectParams.addEventListener("click", () => {
+      updateLecturerParams();
+    });
+
+    DOM.btnExportCSV.addEventListener("click", () => {
+      exportClassDataToCSV();
+    });
+
+    DOM.btnResetClassData.addEventListener("click", () => {
+      resetClassData();
+    });
+
+    DOM.btnResetStudentProfile.addEventListener("click", () => {
+      resetStudentProfile();
+    });
+
+    // Lock switches
+    DOM.toggleLockMod3.addEventListener("change", (e) => {
+      state.locks.mod3 = e.target.checked;
+      applyModuleLocks();
+      saveStateToStorage();
+    });
+
+    DOM.toggleLockMod4.addEventListener("change", (e) => {
+      state.locks.mod4 = e.target.checked;
+      applyModuleLocks();
+      saveStateToStorage();
+    });
+
+    DOM.toggleLockKuiz.addEventListener("change", (e) => {
+      state.locks.kuiz = e.target.checked;
+      applyModuleLocks();
+      saveStateToStorage();
+    });
+
+    // 11. PDF Download Buttons
+    DOM.btnDownloadPDFTop.addEventListener("click", downloadHandbookPDF);
+    DOM.btnDownloadHandbook.addEventListener("click", downloadHandbookPDF);
+    DOM.btnDownloadNotesEnd.addEventListener("click", downloadHandbookPDF);
+  }
+
+  // Jalankan Init
+  init();
+});
+
+</script>
+</body>
+</html>
